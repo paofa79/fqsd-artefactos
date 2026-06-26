@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FQSD · Para Empresas · Disruptia</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a1f44;
+      --blue: #0056b3;
+      --green: #1d9e75;
+      --green-light: #eaf3de;
+      --green-text: #27500a;
+      --cyan: #5dcaa5;
+      --cyan-dim: rgba(29,158,117,.12);
+      --cyan-border: rgba(29,158,117,.25);
+      --white: #ffffff;
+      --gray-50: #f8f9fb;
+      --gray-100: #f0f2f5;
+      --gray-200: #e2e6ed;
+      --gray-500: #6b7280;
+      --gray-800: #1f2937;
+      --text: #1f2937;
+      --text-muted: #6b7280;
+      --radius: 12px;
+      --shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-50);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px 16px 48px;
+    }
+
+    .container { max-width: 720px; margin: 0 auto; }
+
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      border-radius: 20px;
+      padding: 36px 32px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      background: var(--green);
+      opacity: .07;
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50px; left: -20px;
+      width: 180px; height: 180px;
+      background: var(--blue);
+      opacity: .14;
+      border-radius: 50%;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: var(--cyan-dim);
+      color: var(--cyan);
+      border: 1px solid var(--cyan-border);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.22;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 span { color: var(--cyan); }
+    .hero-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+      max-width: 540px;
+      margin-bottom: 24px;
+    }
+    .hero-sub strong { color: var(--white); }
+
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1);
+      position: relative;
+      z-index: 1;
+    }
+    .stat {
+      text-align: center;
+      padding: 16px 10px;
+      background: rgba(255,255,255,.05);
+    }
+    .stat:not(:last-child) { border-right: 1px solid rgba(255,255,255,.08); }
+    .stat-n {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--cyan);
+      display: block;
+    }
+    .stat-l {
+      font-size: 11px;
+      color: rgba(255,255,255,.45);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* SECTION LABEL */
+    .sec-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .sec-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray-200);
+    }
+
+    .section { margin-bottom: 28px; }
+
+    /* BENEFIT CARDS */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .bcard {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      border-top: 3px solid var(--blue);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .bcard.green { border-top-color: var(--green); }
+    .bcard.purple { border-top-color: #7f77dd; }
+    .bcard.amber { border-top-color: #ef9f27; }
+    .bcard-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px;
+    }
+    .bcard-title { font-size: 14px; font-weight: 600; color: var(--gray-800); margin-bottom: 6px; }
+    .bcard-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+    /* EXCLUSIVE CARDS */
+    .xcard {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      box-shadow: var(--shadow);
+      margin-bottom: 8px;
+    }
+    .xcard:last-child { margin-bottom: 0; }
+    .xbar {
+      width: 3px;
+      border-radius: 2px;
+      background: var(--green);
+      align-self: stretch;
+      flex-shrink: 0;
+      min-height: 40px;
+    }
+    .xcard-title { font-size: 14px; font-weight: 600; color: var(--gray-800); margin-bottom: 4px; }
+    .xcard-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+    /* STEPS */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+    .step { display: flex; align-items: flex-start; gap: 14px; padding-bottom: 20px; }
+    .step:last-child { padding-bottom: 0; }
+    .step-col { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 36px; }
+    .step-num {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--cyan);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-line { width: 2px; flex: 1; background: var(--gray-200); margin: 5px 0; min-height: 20px; }
+    .step-title { font-size: 14px; font-weight: 600; color: var(--gray-800); margin-bottom: 4px; padding-top: 6px; }
+    .step-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+    /* CTA */
+    .cta { background: var(--navy); border-radius: 16px; padding: 24px 28px; }
+    .cta-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px; font-weight: 800;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 14px;
+    }
+    .cta-row { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: 14px; color: rgba(255,255,255,.85); }
+    .cta-row a { color: var(--cyan); text-decoration: none; }
+    .cta-row a:hover { text-decoration: underline; }
+    .cta-footer { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.08); }
+    .cta-footer a { font-size: 12px; color: rgba(255,255,255,.35); text-decoration: none; }
+    .cta-footer a:hover { color: rgba(255,255,255,.6); }
+
+    .ico { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0 20px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .nav img { height: 32px; width: auto; }
+    .nav-link { font-size: 12px; font-weight: 600; color: var(--text-muted); text-decoration: none; }
+    .nav-link:hover { color: var(--blue); }
+    .hero-logo { height: 28px; width: auto; margin-bottom: 20px; display: block; opacity: .85; }
+    .cta-logo { height: 24px; width: auto; opacity: .5; }
+  </style>
+</head>
+<body>
+
+<nav style="padding: 0 16px;">
+  <div class="nav">
+    <img src="logo-negro.png" alt="Disruptia">
+    <a class="nav-link" href="jovenes.html">¿Eres joven? →</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="logo-blanco.png" alt="Disruptia" class="hero-logo">
+    <div class="hero-tag">
+      <svg class="ico" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+      Para Empresas · Cali 2026
+    </div>
+    <h1>Contrata talento digital<br><span>certificado y pre-filtrado</span></h1>
+    <p class="hero-sub"><strong>Disruptia</strong> opera el programa FQSD Fase II en Cali. Tenemos el talento verificado — cero tarifa de intermediación, beneficio tributario del 120 %.</p>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-n">85.000</span>
+        <div class="stat-l">Vacantes digitales sin cubrir proyectadas a 2026</div>
+      </div>
+      <div class="stat">
+        <span class="stat-n">68%</span>
+        <div class="stat-l">Empresas TI con dificultad para encontrar talento certificado</div>
+      </div>
+      <div class="stat">
+        <span class="stat-n">470+</span>
+        <div class="stat-l">Vacantes digitales activas en Cali ahora mismo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BENEFICIOS CORE -->
+  <div class="section">
+    <div class="sec-label">
+      <svg class="ico" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      ¿Qué recibe tu empresa?
+    </div>
+    <div class="benefits-grid">
+      <div class="bcard">
+        <div class="bcard-icon" style="background:#e6f1fb">
+          <svg width="18" height="18" fill="none" stroke="#185fa5" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="bcard-title">Cero costo de intermediación</div>
+        <div class="bcard-desc">El filtro técnico ya está hecho. El programa es financiado externamente.</div>
+      </div>
+      <div class="bcard green">
+        <div class="bcard-icon" style="background:#eaf3de">
+          <svg width="18" height="18" fill="none" stroke="#1d9e75" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="bcard-title">Deducción tributaria del 120 %</div>
+        <div class="bcard-desc">Art. 108-5 E.T. por contratar jóvenes en su primer empleo formal.</div>
+      </div>
+      <div class="bcard purple">
+        <div class="bcard-icon" style="background:#eeedfe">
+          <svg width="18" height="18" fill="none" stroke="#7f77dd" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="bcard-title">Menor riesgo de rotación</div>
+        <div class="bcard-desc">Acompañamiento post-vinculación de 2 meses reduce la deserción temprana.</div>
+      </div>
+      <div class="bcard amber">
+        <div class="bcard-icon" style="background:#faeeda">
+          <svg width="18" height="18" fill="none" stroke="#ef9f27" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <div class="bcard-title">Impacto social verificable</div>
+        <div class="bcard-desc">Trazabilidad ante el SISE y reportes para ESG o RSE corporativa.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BENEFICIOS EXCLUSIVOS -->
+  <div class="section">
+    <div class="sec-label">
+      <svg class="ico" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+      Beneficios exclusivos para empresas aliadas
+    </div>
+    <div>
+      <div class="xcard">
+        <div class="xbar"></div>
+        <div>
+          <div class="xcard-title">Hackathon sin costo — selección en vivo</div>
+          <div class="xcard-desc">Tu reto técnico se resuelve en el evento. Sales con talento validado, listo para contratar en máximo 2 días. Primera Hackathon sin costo para la empresa.</div>
+        </div>
+      </div>
+      <div class="xcard">
+        <div class="xbar"></div>
+        <div>
+          <div class="xcard-title">Dashboard de seguimiento post-vinculación</div>
+          <div class="xcard-desc">Reportes periódicos de adaptación y desempeño del talento colocado, más allá de los 2 meses iniciales. Sin costo adicional.</div>
+        </div>
+      </div>
+      <div class="xcard">
+        <div class="xbar"></div>
+        <div>
+          <div class="xcard-title">Asesoría para certificar el beneficio tributario</div>
+          <div class="xcard-desc">Acompañamiento ante el Ministerio del Trabajo para certificar la deducción del 120 % por cada contratación elegible.</div>
+        </div>
+      </div>
+      <div class="xcard">
+        <div class="xbar"></div>
+        <div>
+          <div class="xcard-title">Cupo 2x1 en formación de liderazgo para IA</div>
+          <div class="xcard-desc">Formación exclusiva para Alta Gerencia en adopción de IA en la organización. Un cupo adicional gratis en la siguiente cohorte.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASOS -->
+  <div class="section">
+    <div class="sec-label">
+      <svg class="ico" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      Cómo funciona — 5 pasos
+    </div>
+    <div class="card">
+      <div class="step">
+        <div class="step-col"><div class="step-num">1</div><div class="step-line"></div></div>
+        <div>
+          <div class="step-title">Alianza formal</div>
+          <div class="step-desc">Firma de convenio con Disruptia. Sin costo y sin compromisos de exclusividad.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-col"><div class="step-num">2</div><div class="step-line"></div></div>
+        <div>
+          <div class="step-title">Defines el perfil que necesitas</div>
+          <div class="step-desc">Nos cuentas las habilidades técnicas, el rol y las condiciones de vinculación.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-col"><div class="step-num">3</div><div class="step-line"></div></div>
+        <div>
+          <div class="step-title">Recibes candidatos pre-filtrados</div>
+          <div class="step-desc">Matching técnico realizado por Disruptia. Perfiles con certificados y portafolio verificado.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-col"><div class="step-num">4</div><div class="step-line"></div></div>
+        <div>
+          <div class="step-title">Entrevistas y seleccionas</div>
+          <div class="step-desc">Proceso de selección propio de la empresa, o mediante la Hackathon.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-col"><div class="step-num">5</div></div>
+        <div>
+          <div class="step-title">Acompañamiento post-vinculación</div>
+          <div class="step-desc">Seguimiento 2 meses + reportes formales + apoyo para certificar el beneficio tributario.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="cta-label">Conversemos esta semana</div>
+    <div class="cta-row">
+      <svg class="ico" fill="none" stroke="#5dcaa5" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <a href="mailto:proyectos@disruptia.co">proyectos@disruptia.co</a>
+    </div>
+    <div class="cta-row">
+      <svg class="ico" fill="none" stroke="#5dcaa5" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>310 421 5180 · 318 611 4645</span>
+    </div>
+    <div class="cta-footer" style="display:flex;align-items:center;justify-content:space-between">
+      <a href="https://disruptia.co" target="_blank" rel="noopener">disruptia.co ↗</a>
+      <img src="logo-blanco.png" alt="Disruptia" class="cta-logo">
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
