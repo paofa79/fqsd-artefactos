@@ -280,12 +280,151 @@
     .hero-logo { height: 32px; width: auto; margin-bottom: 24px; display: block; opacity: .85; }
     .cta-logo { height: 28px; width: auto; opacity: .5; }
 
+    /* FASES */
+    .phases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    .phase-col {
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow);
+    }
+    .phase-header {
+      padding: 14px 16px;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ph-ingreso .phase-header  { background: var(--blue); }
+    .ph-accel .phase-header    { background: #00a0a8; }
+    .ph-salida .phase-header   { background: #1d9e75; }
+    .phase-body {
+      background: #f8f9fb;
+      padding: 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .phase-step {
+      background: white;
+      border-radius: 8px;
+      padding: 12px 14px;
+      border-left: 4px solid #ddd;
+      position: relative;
+    }
+    .ph-ingreso .phase-step { border-left-color: var(--blue); }
+    .ph-accel .phase-step   { border-left-color: #00a0a8; }
+    .ph-salida .phase-step  { border-left-color: #1d9e75; }
+    .ps-num {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      color: white;
+    }
+    .ph-ingreso .ps-num { background: var(--blue); }
+    .ph-accel .ps-num   { background: #00a0a8; }
+    .ph-salida .ps-num  { background: #1d9e75; }
+    .ps-title { font-size: 14px; font-weight: 600; color: var(--gray-800); margin-bottom: 4px; }
+    .ps-desc  { font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-bottom: 8px; }
+    .ps-result {
+      font-size: 11px;
+      font-weight: 700;
+      background: #eef2ff;
+      color: var(--blue);
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .ph-salida .ps-result { background: #e6f9f3; color: #0f6e56; }
+    .ph-accel .ps-result  { background: #e0f6f7; color: #00797f; }
+
+    /* RUTAS */
+    .routes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .route-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform .2s;
+    }
+    .route-card:hover { transform: translateY(-3px); }
+    .route-top {
+      padding: 10px 16px;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .rt-green  { background: #28a745; }
+    .rt-orange { background: #fd7e14; }
+    .rt-yellow { background: #e6a800; }
+    .rt-purple { background: #6f42c1; }
+    .route-body {
+      background: white;
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .route-badge {
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--gray-100);
+      color: var(--text-muted);
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 8px;
+      align-self: flex-start;
+    }
+    .route-name { font-size: 16px; font-weight: 700; color: var(--gray-800); margin-bottom: 6px; }
+    .route-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 10px; flex: 1; }
+    .route-steps {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      background: #eef2ff;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 900px) {
+      .phases-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 768px) {
       body { padding: 16px 16px 48px; }
       .hero { padding: 32px 24px; }
       .hero h1 { font-size: 28px; }
       .hero p { font-size: 15px; }
       .profiles-grid { grid-template-columns: 1fr 1fr; }
+      .routes-grid { grid-template-columns: 1fr 1fr; }
       .cta { padding: 24px 20px; }
       .nav { padding: 12px 0 16px; }
     }
@@ -293,6 +432,7 @@
     @media (max-width: 480px) {
       .hero h1 { font-size: 24px; }
       .profiles-grid { grid-template-columns: 1fr; }
+      .routes-grid { grid-template-columns: 1fr; }
       .nav img { height: 28px; }
     }
   </style>
@@ -420,49 +560,138 @@
       <svg class="ico" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
       ¿Qué recibes en el programa?
     </div>
-    <div class="card">
-      <div class="step">
-        <div class="step-col"><div class="step-num">1</div><div class="step-line"></div></div>
-        <div>
-          <div class="step-title">Diagnóstico integral</div>
-          <div class="step-desc">Pruebas psicométricas, entrevista y mapeo de saberes. Se te asigna una ruta personalizada según tu perfil.</div>
+    <!-- FASE I / II / III -->
+    <div class="phases-grid">
+
+      <!-- FASE I: INGRESO -->
+      <div class="phase-col ph-ingreso">
+        <div class="phase-header">
+          <svg width="16" height="16" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Fase I · Ingreso
+        </div>
+        <div class="phase-body">
+          <div class="phase-step">
+            <div class="ps-num">1</div>
+            <div class="ps-title">Convocatoria y Recepción</div>
+            <div class="ps-desc">Inscripción al programa y primer contacto con el equipo Disruptia para conocer tu perfil.</div>
+            <span class="ps-result">→ Inscripción confirmada</span>
+          </div>
+          <div class="phase-step">
+            <div class="ps-num">2</div>
+            <div class="ps-title">Filtro de Elegibilidad</div>
+            <div class="ps-desc">Verificación de requisitos: edad, comuna, formación tech y disponibilidad para el programa.</div>
+            <span class="ps-result">→ Candidato elegible</span>
+          </div>
+          <div class="phase-step">
+            <div class="ps-num">3</div>
+            <div class="ps-title">Diagnóstico → Ruta Asignada</div>
+            <div class="ps-desc">Pruebas psicométricas, entrevista profunda y mapeo de saberes para definir tu camino ideal.</div>
+            <span class="ps-result">→ Ruta personalizada</span>
+          </div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-col"><div class="step-num">2</div><div class="step-line"></div></div>
-        <div>
-          <div class="step-title">Marca personal — CV y LinkedIn</div>
-          <div class="step-desc">Hoja de vida optimizada para sistemas ATS y perfil digital profesional listo para reclutadores.</div>
+
+      <!-- FASE II: ACELERACIÓN -->
+      <div class="phase-col ph-accel">
+        <div class="phase-header">
+          <svg width="16" height="16" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Fase II · Aceleración
+        </div>
+        <div class="phase-body">
+          <div class="phase-step">
+            <div class="ps-num">4</div>
+            <div class="ps-title">Marca Personal</div>
+            <div class="ps-desc">CV optimizado para ATS, LinkedIn profesional y portafolio digital listo para reclutadores.</div>
+            <span class="ps-result">→ Perfil publicado</span>
+          </div>
+          <div class="phase-step">
+            <div class="ps-num">5</div>
+            <div class="ps-title">Entrevistas y Habilidades</div>
+            <div class="ps-desc">Simulacros STAR con IA conversacional, feedback inmediato y preparación técnica según tu ruta.</div>
+            <span class="ps-result">→ Lista para entrevistas</span>
+          </div>
+          <div class="phase-step">
+            <div class="ps-num">6</div>
+            <div class="ps-title">Hackathon de Última Milla</div>
+            <div class="ps-desc">Reto práctico real con empresas aliadas para demostrar tus habilidades ante reclutadores reales.</div>
+            <span class="ps-result">→ Portafolio validado</span>
+          </div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-col"><div class="step-num">3</div><div class="step-line"></div></div>
-        <div>
-          <div class="step-title">Entrenamiento de entrevistas</div>
-          <div class="step-desc">Simulacros STAR con bot conversacional y feedback inmediato hasta que te sientas completamente seguro.</div>
+
+      <!-- FASE III: SALIDA -->
+      <div class="phase-col ph-salida">
+        <div class="phase-header">
+          <svg width="16" height="16" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          Fase III · Salida
+        </div>
+        <div class="phase-body">
+          <div class="phase-step">
+            <div class="ps-num">7</div>
+            <div class="ps-title">Intermediación Laboral</div>
+            <div class="ps-desc">Tu perfil validado llega a empresas que buscan exactamente tu rol. Acompañamiento contractual incluido.</div>
+            <span class="ps-result">→ Oferta de empleo</span>
+          </div>
+          <div class="phase-step">
+            <div class="ps-num">8</div>
+            <div class="ps-title">Retención y Seguimiento</div>
+            <div class="ps-desc">Apoyo psicosocial e integración familiar durante tus primeros 2 meses para que el empleo sea un éxito duradero.</div>
+            <span class="ps-result">→ Empleado activo ✓</span>
+          </div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-col"><div class="step-num">4</div><div class="step-line"></div></div>
-        <div>
-          <div class="step-title">Hackathon de última milla <span class="step-tag">según tu ruta</span></div>
-          <div class="step-desc">Reto práctico real con empresas aliadas para demostrar tus habilidades directamente ante reclutadores.</div>
+
+    </div><!-- /phases-grid -->
+  </div>
+
+  <!-- 4 RUTAS -->
+  <div class="section">
+    <div class="sec-label">
+      <svg class="ico" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Tu ruta personalizada — ¿cuál es la tuya?
+    </div>
+    <div class="routes-grid">
+
+      <div class="route-card">
+        <div class="route-top rt-green">Ruta 1</div>
+        <div class="route-body">
+          <div class="route-badge">Exprés · Fast Track</div>
+          <div class="route-name">Ya estoy listo/a</div>
+          <div class="route-desc">Tienes formación sólida y habilidades validadas. Vas directo a la fase de marca personal, entrevistas y colocación — sin pasos extra.</div>
+          <div class="route-steps">Pasos: 4 → 5 → 6 → 7 → 8</div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-col"><div class="step-num">5</div><div class="step-line"></div></div>
-        <div>
-          <div class="step-title">Intermediación y colocación</div>
-          <div class="step-desc">Tu perfil validado llega directamente a empresas que buscan tu rol. Acompañamiento contractual incluido.</div>
+
+      <div class="route-card">
+        <div class="route-top rt-orange">Ruta 2</div>
+        <div class="route-body">
+          <div class="route-badge">Orientación · Upskilling</div>
+          <div class="route-name">Necesito enfocarme</div>
+          <div class="route-desc">Tienes base técnica pero debes definir tu área de especialización. Recibes orientación vocacional y fortalecimiento antes de salir al mercado.</div>
+          <div class="route-steps">Pasos: 3 → 4 → 5 → 7 → 8</div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-col"><div class="step-num">6</div></div>
-        <div>
-          <div class="step-title">Acompañamiento en tus primeros 2 meses</div>
-          <div class="step-desc">Apoyo psicosocial e integración familiar para que tu adaptación al nuevo empleo sea un éxito real.</div>
+
+      <div class="route-card">
+        <div class="route-top rt-yellow">Ruta 3</div>
+        <div class="route-body">
+          <div class="route-badge">Última Milla · Nivelación</div>
+          <div class="route-name">Me falta práctica</div>
+          <div class="route-desc">Tu formación está casi completa pero necesitas práctica real. El hackathon y el refuerzo técnico cierran la brecha entre lo aprendido y lo requerido.</div>
+          <div class="route-steps">Pasos: 4 → 5 → 6 → 7 → 8</div>
         </div>
       </div>
+
+      <div class="route-card">
+        <div class="route-top rt-purple">Ruta 4</div>
+        <div class="route-body">
+          <div class="route-badge">Aceleración Disruptiva</div>
+          <div class="route-name">Quiero ir más lejos</div>
+          <div class="route-desc">Tienes potencial alto y ambición de crecer rápido. Accedes al programa completo con mentoría intensiva y exposición a proyectos de mayor impacto.</div>
+          <div class="route-steps">Pasos: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
