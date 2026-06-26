@@ -275,8 +275,22 @@
       margin: 0 auto;
     }
     .nav img { height: 36px; width: auto; }
-    .nav-link { font-size: 14px; font-weight: 600; color: var(--text-muted); text-decoration: none; }
-    .nav-link:hover { color: var(--blue); }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .nav-home {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 13px; font-weight: 600; color: var(--text-muted);
+      text-decoration: none; padding: 6px 10px; border-radius: 8px;
+      border: 1px solid var(--gray-200); transition: background .15s;
+    }
+    .nav-home:hover { background: var(--gray-100); color: var(--gray-800); }
+    .nav-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 700; text-decoration: none;
+      padding: 8px 16px; border-radius: 999px;
+      background: var(--navy); color: white;
+      transition: opacity .15s;
+    }
+    .nav-link:hover { opacity: .85; }
     .hero-logo { height: 32px; width: auto; margin-bottom: 24px; display: block; opacity: .85; }
     .cta-logo { height: 28px; width: auto; opacity: .5; }
 
@@ -442,7 +456,16 @@
 <nav style="padding: 0 16px;">
   <div class="nav">
     <img src="logo-negro.png" alt="Disruptia">
-    <a class="nav-link" href="empresas.html">¿Eres empresa? →</a>
+    <div class="nav-right">
+      <a class="nav-home" href="index.html">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Inicio
+      </a>
+      <a class="nav-link" href="empresas.html">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        Soy empresa →
+      </a>
+    </div>
   </div>
 </nav>
 
