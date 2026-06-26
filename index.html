@@ -10,227 +10,283 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html, body { height: 100%; }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: #0a1f44;
+      display: flex;
+      flex-direction: column;
       min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* TOP BAR */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      background: rgba(10,31,68,.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .topbar img { height: 28px; width: auto; }
+
+    .tag {
+      position: fixed;
+      top: 70px; left: 50%; transform: translateX(-50%);
+      z-index: 10;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 999px;
+      background: rgba(0,194,203,.12);
+      color: #00c2cb;
+      border: 1px solid rgba(0,194,203,.3);
+      white-space: nowrap;
+    }
+
+    /* SPLIT PANELS */
+    .panels {
+      display: flex;
+      flex: 1;
+      height: 100vh;
+    }
+
+    .panel {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 24px 16px;
+      text-decoration: none;
+      padding: 100px 60px 48px;
       position: relative;
       overflow: hidden;
+      transition: flex .4s cubic-bezier(.4,0,.2,1);
+      cursor: pointer;
     }
 
-    body::before {
-      content: '';
-      position: absolute;
-      top: -100px; right: -100px;
-      width: 400px; height: 400px;
-      background: #00c2cb;
-      opacity: .05;
-      border-radius: 50%;
+    .panels:has(.panel:hover) .panel:not(:hover) { flex: .65; }
+    .panels:has(.panel:hover) .panel:hover { flex: 1.35; }
+
+    /* Panel jóvenes */
+    .panel-jovenes {
+      background: #0a1f44;
     }
-    body::after {
+    .panel-jovenes::before {
       content: '';
       position: absolute;
-      bottom: -80px; left: -80px;
-      width: 300px; height: 300px;
+      bottom: -120px; left: -120px;
+      width: 500px; height: 500px;
       background: #0056b3;
-      opacity: .12;
+      opacity: .18;
       border-radius: 50%;
+      pointer-events: none;
+    }
+    .panel-jovenes::after {
+      content: '';
+      position: absolute;
+      top: 60px; right: -80px;
+      width: 300px; height: 300px;
+      background: #00c2cb;
+      opacity: .08;
+      border-radius: 50%;
+      pointer-events: none;
     }
 
-    .wrap {
-      max-width: 560px;
-      width: 100%;
-      text-align: center;
+    /* Panel empresas */
+    .panel-empresas {
+      background: #071a10;
+      border-left: 1px solid rgba(255,255,255,.06);
+    }
+    .panel-empresas::before {
+      content: '';
+      position: absolute;
+      bottom: -100px; right: -100px;
+      width: 450px; height: 450px;
+      background: #1d9e75;
+      opacity: .15;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .panel-empresas::after {
+      content: '';
+      position: absolute;
+      top: 80px; left: -60px;
+      width: 260px; height: 260px;
+      background: #5dcaa5;
+      opacity: .07;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* DIVIDER */
+    .divider {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 5;
+      pointer-events: none;
+    }
+    .divider span {
+      font-size: 11px; font-weight: 700;
+      color: rgba(255,255,255,.3);
+      letter-spacing: .04em;
+    }
+
+    /* PANEL CONTENT */
+    .panel-inner {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      text-align: center;
+      max-width: 460px;
     }
 
-    .logo {
-      height: 36px;
-      width: auto;
-      margin-bottom: 36px;
-      opacity: .9;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: 5px 14px;
+    .panel-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 4px 12px;
       border-radius: 999px;
-      background: rgba(0,194,203,.12);
-      color: #00c2cb;
-      border: 1px solid rgba(0,194,203,.25);
+      display: inline-block;
       margin-bottom: 20px;
     }
+    .panel-jovenes .panel-label {
+      background: rgba(0,194,203,.15);
+      color: #00c2cb;
+      border: 1px solid rgba(0,194,203,.25);
+    }
+    .panel-empresas .panel-label {
+      background: rgba(93,202,165,.12);
+      color: #5dcaa5;
+      border: 1px solid rgba(93,202,165,.2);
+    }
 
-    h1 {
+    .panel-icon {
+      width: 72px; height: 72px;
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+      transition: transform .3s;
+    }
+    .panel:hover .panel-icon { transform: scale(1.08); }
+    .panel-jovenes .panel-icon { background: rgba(0,194,203,.12); }
+    .panel-empresas .panel-icon { background: rgba(93,202,165,.1); }
+
+    .panel-title {
       font-family: 'Montserrat', sans-serif;
-      font-size: 30px;
+      font-size: clamp(28px, 3.5vw, 48px);
       font-weight: 800;
       color: #fff;
-      line-height: 1.2;
-      margin-bottom: 10px;
-    }
-    h1 span { color: #00c2cb; }
-
-    .sub {
-      font-size: 15px;
-      color: rgba(255,255,255,.6);
-      line-height: 1.65;
-      margin-bottom: 44px;
-      max-width: 420px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .question {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.35);
+      line-height: 1.15;
       margin-bottom: 16px;
     }
+    .panel-jovenes .panel-title span { color: #00c2cb; }
+    .panel-empresas .panel-title span { color: #5dcaa5; }
 
-    .cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+    .panel-desc {
+      font-size: clamp(14px, 1.2vw, 16px);
+      color: rgba(255,255,255,.55);
+      line-height: 1.7;
+      margin-bottom: 32px;
     }
 
-    .card {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 16px;
-      padding: 28px 20px;
-      text-decoration: none;
-      text-align: left;
-      transition: background .2s, border-color .2s, transform .15s;
-      display: block;
-    }
-    .card:hover {
-      background: rgba(255,255,255,.1);
-      border-color: rgba(255,255,255,.2);
-      transform: translateY(-2px);
-    }
-
-    .card-icon {
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 14px;
-    }
-
-    .card-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .card-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 18px;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 8px;
-      line-height: 1.2;
-    }
-
-    .card-desc {
-      font-size: 12px;
-      color: rgba(255,255,255,.5);
-      line-height: 1.6;
-    }
-
-    .card-arrow {
+    .panel-cta {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      margin-top: 14px;
-      font-size: 12px;
-      font-weight: 600;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      text-decoration: none;
     }
+    .panel:hover .panel-cta { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.3); }
+    .panel-jovenes .panel-cta { background: #00c2cb; color: #0a1f44; }
+    .panel-empresas .panel-cta { background: #1d9e75; color: white; }
 
-    .card.jovenes .card-icon { background: rgba(0,194,203,.15); }
-    .card.jovenes .card-label { color: #00c2cb; }
-    .card.jovenes .card-arrow { color: #00c2cb; }
-
-    .card.empresas .card-icon { background: rgba(29,158,117,.15); }
-    .card.empresas .card-label { color: #5dcaa5; }
-    .card.empresas .card-arrow { color: #5dcaa5; }
-
-    .footer {
-      margin-top: 36px;
-      font-size: 12px;
+    /* BOTTOM HINT */
+    .hint {
+      position: fixed;
+      bottom: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 10;
+      font-size: 11px;
       color: rgba(255,255,255,.2);
+      letter-spacing: .05em;
     }
-    .footer a { color: rgba(255,255,255,.3); text-decoration: none; }
-    .footer a:hover { color: rgba(255,255,255,.5); }
 
-    @media (max-width: 480px) {
-      .cards { grid-template-columns: 1fr; }
-      h1 { font-size: 24px; }
+    /* MOBILE */
+    @media (max-width: 768px) {
+      body { overflow: auto; }
+      .panels { flex-direction: column; height: auto; }
+      .panel { flex: none !important; min-height: 100svh; padding: 90px 32px 48px; }
+      .panel-jovenes::after, .panel-empresas::after { display: none; }
+      .panel-title { font-size: 32px; }
+      .divider { display: none; }
+      .hint { display: none; }
+      .panels:has(.panel:hover) .panel:not(:hover) { flex: none; }
     }
   </style>
 </head>
 <body>
-<div class="wrap">
 
-  <img src="logo-blanco.png" alt="Disruptia" class="logo">
+<div class="topbar">
+  <img src="logo-blanco.png" alt="Disruptia">
+</div>
 
-  <div class="tag">Fondo Quiero Ser Digital · Fase II · Cali 2026</div>
+<div class="tag">Fondo Quiero Ser Digital · Fase II · Cali 2026</div>
 
-  <h1>Talento digital,<br><span>empleo real</span></h1>
-  <p class="sub">Conectamos jóvenes certificados con empresas formales en Cali — sin costo de intermediación.</p>
+<div class="panels">
 
-  <div class="question">¿Con quién hablamos hoy?</div>
-
-  <div class="cards">
-    <a href="jovenes.html" class="card jovenes">
-      <div class="card-icon">
-        <svg width="22" height="22" fill="none" stroke="#00c2cb" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+  <!-- JÓVENES -->
+  <a href="jovenes.html" class="panel panel-jovenes">
+    <div class="panel-inner">
+      <div class="panel-label">Para jóvenes</div>
+      <div class="panel-icon">
+        <svg width="34" height="34" fill="none" stroke="#00c2cb" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       </div>
-      <div class="card-label">Para jóvenes</div>
-      <div class="card-title">Soy un talento tech</div>
-      <div class="card-desc">Tengo formación y quiero mi primer empleo formal en tecnología.</div>
-      <div class="card-arrow">
+      <div class="panel-title">Soy un<br><span>talento tech</span></div>
+      <div class="panel-desc">Tengo formación en tecnología y quiero<br>mi primer empleo formal en Cali.</div>
+      <span class="panel-cta">
         Ver programa
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </div>
-    </a>
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+    </div>
+  </a>
 
-    <a href="empresas.html" class="card empresas">
-      <div class="card-icon">
-        <svg width="22" height="22" fill="none" stroke="#5dcaa5" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+  <!-- EMPRESAS -->
+  <a href="empresas.html" class="panel panel-empresas">
+    <div class="panel-inner">
+      <div class="panel-label">Para empresas</div>
+      <div class="panel-icon">
+        <svg width="34" height="34" fill="none" stroke="#5dcaa5" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
       </div>
-      <div class="card-label">Para empresas</div>
-      <div class="card-title">Necesito talento digital</div>
-      <div class="card-desc">Quiero contratar perfiles tech certificados sin costo de intermediación.</div>
-      <div class="card-arrow">
+      <div class="panel-title">Necesito<br><span>talento digital</span></div>
+      <div class="panel-desc">Quiero contratar perfiles tech certificados<br>sin costo de intermediación.</div>
+      <span class="panel-cta">
         Ver beneficios
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </div>
-    </a>
-  </div>
-
-  <div class="footer">
-    <a href="https://disruptia.co" target="_blank" rel="noopener">disruptia.co</a>
-    &nbsp;·&nbsp; proyectos@disruptia.co
-  </div>
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+    </div>
+  </a>
 
 </div>
+
+<div class="hint">Pasa el cursor sobre cada opción · disruptia.co</div>
+
 </body>
 </html>
