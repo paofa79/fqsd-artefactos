@@ -5,7 +5,7 @@ Contexto para Claude al trabajar en este repositorio y en general con Paola y Di
 
 ## Sobre mí
 
-- **Paola Porras** — cofundadora de **Disruptia** (paola@disruptia.co, GitHub: paofa79).
+- **Paola Andrea Franco Amaya** — **CEO de Disruptia** (paola@disruptia.co, GitHub: paofa79, Vercel: paola-franco-s-projects).
 - Lidera propuestas comerciales y de convocatorias (Colsubsidio, Comfenalco Antioquia, Uniandes/EDCO, entre otras) y dicta talleres de liderazgo adaptativo e IA para equipos directivos.
 - Basada en Colombia. Redes de la empresa: @Disruptia_oficial.
 
@@ -13,7 +13,8 @@ Contexto para Claude al trabajar en este repositorio y en general con Paola y Di
 
 - **Disruptia SAS** (NIT 901196915-3) es una startup colombiana de impacto social — se presenta como **"Aceleradora de Talento"**.
 - **Propósito:** cerrar brechas de empleabilidad para poblaciones subrepresentadas en el mercado laboral (jóvenes, mujeres, migrantes, personas con discapacidad, adultos mayores, poblaciones en territorios), mediante programas de formación ágiles que combinan desarrollo de capacidades humanas con uso práctico de inteligencia artificial.
-- **Cofundadores:** Paola Porras y Juan Sebastián Viviezcas (representante legal, juansebastian@disruptia.co).
+- **Equipo directivo:** Paola Franco (CEO), Juan Sebastián Viviezcas (cofundador y representante legal, juansebastian@disruptia.co), Paula Porras (cofundadora, Product and Growth Director).
+- **Reconocimientos:** finalista del TecPrize 2025 (Tec de Monterrey).
 - **Sitio web:** [disruptia.co](https://disruptia.co) · Plataforma: app.disruptia.co
 - **Contacto comercial:** proyectos@disruptia.co · 321 488 5360
 
