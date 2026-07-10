@@ -16,6 +16,7 @@ Contexto para Claude al trabajar en este repositorio y en general con Paola y Di
 - **Equipo directivo:** Paola Franco (CEO), Juan Sebastián Viviezcas (cofundador y representante legal, juansebastian@disruptia.co), Paula Porras (cofundadora, Product and Growth Director).
 - **Reconocimientos:** finalista del TecPrize 2025 (Tec de Monterrey).
 - **Sitio web:** [disruptia.co](https://disruptia.co) · Plataforma: app.disruptia.co
+- **LinkedIn:** [Disruptia Oficial](https://www.linkedin.com/company/disruptiaoficial)
 - **Contacto comercial:** proyectos@disruptia.co · 321 488 5360
 
 ## Productos y líneas de negocio
