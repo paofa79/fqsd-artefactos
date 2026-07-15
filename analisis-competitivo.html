@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Análisis Competitivo · Disruptia vs 1Mentor</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a1f44;
+      --blue: #0056b3;
+      --cyan: #00c2cb;
+      --green: #1d9e75;
+      --red: #c0392b;
+      --red-bg: #fdf0ee;
+      --green-bg: #e6f9f3;
+      --cyan-dim: rgba(0,194,203,.15);
+      --cyan-border: rgba(0,194,203,.3);
+      --white: #ffffff;
+      --gray-50: #f8f9fb;
+      --gray-100: #f0f2f5;
+      --gray-200: #e2e6ed;
+      --gray-500: #6b7280;
+      --gray-800: #1f2937;
+      --text: #1f2937;
+      --text-muted: #6b7280;
+      --radius: 12px;
+      --shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      background: var(--gray-50);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px 32px 64px;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* NAV */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .nav img { height: 36px; width: auto; }
+    .nav-badge {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--red);
+      background: var(--red-bg);
+      border: 1px solid #f0cfc9;
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      border-radius: 20px;
+      padding: 52px 48px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      background: var(--cyan);
+      opacity: .06;
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50px; left: -20px;
+      width: 180px; height: 180px;
+      background: var(--blue);
+      opacity: .15;
+      border-radius: 50%;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: var(--cyan-dim);
+      color: var(--cyan);
+      border: 1px solid var(--cyan-border);
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 span { color: var(--cyan); }
+    .hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+    .hero p strong { color: var(--white); }
+
+    /* SECTION LABEL */
+    .sec-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+    .section { margin-bottom: 36px; }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+    }
+
+    /* TESIS */
+    .thesis {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 32px 36px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .thesis-icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      background: var(--cyan-dim);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .thesis h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+    .thesis h2 span { color: var(--cyan); }
+    .thesis p { font-size: 15px; color: rgba(255,255,255,.72); line-height: 1.7; }
+    .thesis p strong { color: var(--white); }
+
+    /* FICHAS QUIÉN ES QUIÉN */
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .who-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow);
+      background: var(--white);
+    }
+    .who-head {
+      padding: 14px 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .who-head .who-type {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.18);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .who-disruptia .who-head { background: var(--navy); }
+    .who-1mentor  .who-head { background: #4a5568; }
+    .who-body { padding: 18px 20px; }
+    .who-row {
+      display: flex;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .who-row:last-child { border-bottom: none; }
+    .who-row .k {
+      font-weight: 700;
+      color: var(--gray-800);
+      width: 120px;
+      flex-shrink: 0;
+      font-size: 13px;
+    }
+    .who-row .v { color: var(--text-muted); }
+
+    /* TABLA COMPARATIVA */
+    .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--gray-200); box-shadow: var(--shadow); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      min-width: 720px;
+    }
+    thead th {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      padding: 14px 18px;
+      text-align: left;
+      color: white;
+    }
+    thead th:first-child { background: var(--gray-800); width: 26%; }
+    thead th.col-dx  { background: var(--navy); width: 40%; }
+    thead th.col-1m  { background: #4a5568; width: 34%; }
+    tbody td {
+      padding: 13px 18px;
+      font-size: 14px;
+      line-height: 1.55;
+      border-top: 1px solid var(--gray-100);
+      vertical-align: top;
+    }
+    tbody td:first-child {
+      font-weight: 700;
+      color: var(--gray-800);
+      font-size: 13px;
+      background: var(--gray-50);
+    }
+    td.yes { background: var(--green-bg); color: #0f5138; }
+    td.no  { background: var(--red-bg); color: #7c2d1e; }
+    td.yes strong, td.no strong { display: block; margin-bottom: 2px; }
+    td.yes strong { color: var(--green); }
+    td.no strong  { color: var(--red); }
+
+    /* ARGUMENTOS */
+    .args { display: flex; flex-direction: column; gap: 10px; }
+    .arg {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-left: 4px solid var(--cyan);
+      border-radius: 10px;
+      padding: 16px 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .arg-num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--cyan);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .arg-title { font-size: 16px; font-weight: 700; color: var(--gray-800); margin-bottom: 5px; }
+    .arg-desc  { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+    .arg-desc strong { color: var(--gray-800); }
+
+    /* FORTALEZAS RIVAL */
+    .fair {
+      background: #fffdf5;
+      border: 1px solid #f0e6c8;
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+    .fair-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #8a6d1a;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .fair p { font-size: 14px; color: #6b5d33; line-height: 1.7; margin-bottom: 8px; }
+    .fair p:last-child { margin-bottom: 0; }
+    .fair p strong { color: #4a3f1d; }
+
+    /* RIESGOS */
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+    }
+    .risk {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-top: 3px solid var(--red);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+    .risk-title { font-size: 15px; font-weight: 700; color: var(--gray-800); margin-bottom: 6px; }
+    .risk-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+
+    /* CIERRE */
+    .close {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 36px 40px;
+      text-align: center;
+    }
+    .close h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.4;
+      max-width: 780px;
+      margin: 0 auto 12px;
+    }
+    .close h2 span { color: var(--cyan); }
+    .close p { font-size: 15px; color: rgba(255,255,255,.6); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+    .close img { height: 28px; margin-top: 24px; opacity: .6; }
+
+    /* FUENTES */
+    .sources { font-size: 12.5px; color: var(--text-muted); line-height: 1.8; }
+    .sources a { color: var(--blue); text-decoration: none; }
+    .sources a:hover { text-decoration: underline; }
+
+    .ico { width: 20px; height: 20px; flex-shrink: 0; }
+
+    @media (max-width: 860px) {
+      .who-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 16px 48px; }
+      .hero { padding: 32px 24px; }
+      .hero h1 { font-size: 28px; }
+      .hero p { font-size: 15px; }
+      .thesis { flex-direction: column; padding: 24px; }
+      .close { padding: 28px 22px; }
+      .close h2 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav style="padding: 0 16px;">
+  <div class="nav">
+    <img src="logo-negro.png" alt="Disruptia">
+    <span class="nav-badge">Documento interno · No distribuir</span>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">
+      <svg class="ico" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      Análisis competitivo · FQSD Fase II · Cámara de Comercio de Cali · 2026
+    </div>
+    <h1>Disruptia vs 1Mentor:<br>un operador que <span>emplea</span> vs<br>un software que <span>recomienda</span></h1>
+    <p>La Cámara de Comercio de Cali no está comprando licencias de software. Está invirtiendo recursos para que jóvenes vulnerables de Cali consigan y conserven su <strong>primer empleo formal en tecnología</strong>. Esa diferencia de propósito define todo este comparativo.</p>
+  </div>
+
+  <!-- TESIS -->
+  <div class="section">
+    <div class="thesis">
+      <div class="thesis-icon">
+        <svg width="26" height="26" fill="none" stroke="#00c2cb" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      </div>
+      <div>
+        <h2>Tesis central: <span>1Mentor diagnostica. Disruptia emplea.</span></h2>
+        <p>1Mentor es una buena herramienta de <strong>navegación de carrera</strong>: analiza vacantes con IA, detecta brechas de habilidades y recomienda cursos. Pero su entregable termina donde empieza el problema real del joven de estrato 1, 2 o 3: <strong>nadie lo presenta a una empresa, nadie lo prepara para la entrevista con un humano al lado, nadie lo acompaña los primeros meses del contrato, y nadie responde por si quedó empleado o no</strong>. Disruptia opera la ruta completa — desde la convocatoria en las comunas hasta el joven retenido en su empleo — y rinde cuentas por el resultado final.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIÉN ES QUIÉN -->
+  <div class="section">
+    <div class="sec-label">
+      <svg class="ico" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Quién es quién
+    </div>
+    <div class="who-grid">
+      <div class="who-card who-disruptia">
+        <div class="who-head">Disruptia <span class="who-type">Operador integral</span></div>
+        <div class="who-body">
+          <div class="who-row"><span class="k">Qué es</span><span class="v">Operador de empleabilidad de última milla: diagnóstico, aceleración, intermediación laboral y retención.</span></div>
+          <div class="who-row"><span class="k">Dónde está</span><span class="v">Cali. Equipo local con presencia en las comunas 13, 14, 15, 18, 20 y 21 y el área metropolitana.</span></div>
+          <div class="who-row"><span class="k">A quién sirve</span><span class="v">Jóvenes 18–28, estratos 1–3, desempleados o informales, con formación tech (SENA, bootcamps, ETDH, universidades) — y a las empresas que los contratan.</span></div>
+          <div class="who-row"><span class="k">Entregable</span><span class="v">Contrato laboral formal firmado + 2 meses de retención con apoyo psicosocial, trazable ante el SISE.</span></div>
+          <div class="who-row"><span class="k">Modelo</span><span class="v">Ruta operada por personas, potenciada con IA (simulacros de entrevista, matching técnico). La tecnología sirve a la ruta, no la reemplaza.</span></div>
+        </div>
+      </div>
+      <div class="who-card who-1mentor">
+        <div class="who-head">1Mentor (by QS) <span class="who-type">SaaS de carrera</span></div>
+        <div class="who-body">
+          <div class="who-row"><span class="k">Qué es</span><span class="v">Plataforma de "navegación de carrera" con IA: analiza +500M de vacantes, diagnostica brechas de habilidades y recomienda cursos.</span></div>
+          <div class="who-row"><span class="k">Dónde está</span><span class="v">Startup fundada en Canadá, adquirida por QS Quacquarelli Symonds (Londres). Sin operación propia en Cali.</span></div>
+          <div class="who-row"><span class="k">A quién sirve</span><span class="v">Universidades e instituciones que licencian la plataforma para sus estudiantes matriculados (UNITEC, ULACIT, ESPOL, Agencia Atenea en Bogotá).</span></div>
+          <div class="who-row"><span class="k">Entregable</span><span class="v">Un dashboard: perfil de habilidades, brechas identificadas y rutas de cursos sugeridas. La colocación queda en manos de terceros.</span></div>
+          <div class="who-row"><span class="k">Modelo</span><span class="v">Licencia B2B de software. El joven navega solo frente a la plataforma; el acompañamiento humano depende de la institución que la contrata.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLA COMPARATIVA -->
+  <div class="section">
+    <div class="sec-label">
+      <svg class="ico" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      Cabeza a cabeza — 12 dimensiones que definen el resultado
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimensión</th>
+            <th class="col-dx">Disruptia</th>
+            <th class="col-1m">1Mentor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Naturaleza de la solución</td>
+            <td class="yes"><strong>Operador integral de empleabilidad</strong>Personas + procesos + tecnología, con responsabilidad de punta a punta.</td>
+            <td class="no"><strong>Licencia de software</strong>Herramienta de autodiagnóstico; la operación la debe poner otro.</td>
+          </tr>
+          <tr>
+            <td>Resultado que entrega</td>
+            <td class="yes"><strong>Empleo formal firmado y retenido</strong>La ruta termina en "empleado activo ✓", no antes.</td>
+            <td class="no"><strong>Recomendaciones de cursos</strong>El resultado es un plan de aprendizaje, no un contrato.</td>
+          </tr>
+          <tr>
+            <td>Población objetivo</td>
+            <td class="yes"><strong>Jóvenes vulnerables 18–28, estratos 1–3</strong>Incluye egresados de SENA, bootcamps y ETDH — los perfiles reales del fondo.</td>
+            <td class="no"><strong>Estudiantes universitarios matriculados</strong>Diseñada para instituciones de educación superior; el joven desconectado del sistema queda por fuera.</td>
+          </tr>
+          <tr>
+            <td>Intermediación laboral</td>
+            <td class="yes"><strong>Sí — es el corazón del modelo</strong>Matching técnico con empresas de Cali, hackathons de selección en vivo, acompañamiento contractual.</td>
+            <td class="no"><strong>No la ofrece</strong>La plataforma no gestiona vacantes ni presenta candidatos a empresas.</td>
+          </tr>
+          <tr>
+            <td>Trabajo con el lado empleador</td>
+            <td class="yes"><strong>Red de empresas aliadas en Cali</strong>Perfiles pre-filtrados sin costo, hackathons con retos reales, dashboard post-vinculación.</td>
+            <td class="no"><strong>No trabaja con empresas contratantes</strong>Su cliente es la institución educativa, no el empleador.</td>
+          </tr>
+          <tr>
+            <td>Beneficio tributario 120% (Art. 108-5 E.T.)</td>
+            <td class="yes"><strong>Asesoría incluida</strong>Acompañamiento ante MinTrabajo para certificar la deducción por cada contratación elegible.</td>
+            <td class="no"><strong>Fuera de su alcance</strong>Al no intermediar contrataciones, no activa ni gestiona el beneficio.</td>
+          </tr>
+          <tr>
+            <td>Acompañamiento humano y psicosocial</td>
+            <td class="yes"><strong>Sí — 2 meses post-vinculación</strong>Apoyo psicosocial e integración familiar para blindar la retención temprana.</td>
+            <td class="no"><strong>No existe en el producto</strong>El joven interactúa con un dashboard; el soporte humano lo pone (o no) la institución.</td>
+          </tr>
+          <tr>
+            <td>Última milla práctica</td>
+            <td class="yes"><strong>Hackathon con empresas reales</strong>Portafolio validado frente a reclutadores; del reto al contrato en días.</td>
+            <td class="no"><strong>Brecha sin resolver</strong>Recomienda cursos para cerrar brechas, pero no genera experiencia práctica demostrable.</td>
+          </tr>
+          <tr>
+            <td>Presencia y conocimiento local</td>
+            <td class="yes"><strong>Equipo en Cali</strong>Convocatoria territorial en comunas y municipios; conoce el tejido empresarial del Valle.</td>
+            <td class="no"><strong>Remota</strong>Producto global (Canadá / Londres vía QS); sin equipo operando en el territorio.</td>
+          </tr>
+          <tr>
+            <td>Rendición de cuentas</td>
+            <td class="yes"><strong>Por colocación y retención</strong>Trazabilidad ante el SISE, reportes verificables por joven colocado.</td>
+            <td class="no"><strong>Por uso de plataforma</strong>Métricas de adopción y engagement, no de empleos generados.</td>
+          </tr>
+          <tr>
+            <td>Riesgo de deserción del joven</td>
+            <td class="yes"><strong>Mitigado con ruta guiada</strong>4 rutas personalizadas según punto de partida, con personas responsables de cada fase.</td>
+            <td class="no"><strong>Alto en población vulnerable</strong>El autoservicio digital exige autonomía, conectividad y motivación sostenida que el fondo justamente busca apuntalar.</td>
+          </tr>
+          <tr>
+            <td>Destino de los recursos del fondo</td>
+            <td class="yes"><strong>Se quedan en el ecosistema de Cali</strong>Financian operación local: talento, empresas y resultados en el territorio.</td>
+            <td class="no"><strong>Salen del país como licencia</strong>El fee de software se paga a una multinacional del Reino Unido.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- RECONOCIMIENTO HONESTO -->
+  <div class="section">
+    <div class="sec-label">
+      <svg class="ico" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Juego limpio: qué hace bien 1Mentor — y por qué no basta aquí
+    </div>
+    <div class="fair">
+      <div class="fair-title">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Reconocerlo nos hace más creíbles ante el jurado
+      </div>
+      <p><strong>1Mentor es un buen producto en su categoría.</strong> Su análisis de mercado laboral con IA es sólido, ganó un TPrize del Tec de Monterrey (2023) y fue adquirida por QS — señales de calidad reales. Para una <strong>universidad</strong> que quiere orientar a estudiantes matriculados, es una compra razonable.</p>
+      <p>Pero este fondo no es ese caso de uso. <strong>Un joven de la comuna 15, bachiller egresado del SENA, sin empleo formal, no necesita otro diagnóstico que le recomiende más cursos: necesita que alguien lo lleve hasta el primer contrato y lo sostenga ahí.</strong> El diagnóstico sin colocación deja al joven exactamente donde estaba — con más información y la misma exclusión. De hecho, Disruptia ya incorpora lo que 1Mentor hace (diagnóstico de perfil, mapeo de brechas, simulacros con IA) como <strong>una fase</strong> de su ruta, no como el producto final.</p>
+    </div>
+  </div>
+
+  <!-- ARGUMENTOS DE CIERRE -->
+  <div class="section">
+    <div class="sec-label">
+      <svg class="ico" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Los 5 argumentos para el pitch
+    </div>
+    <div class="args">
+      <div class="arg">
+        <div class="arg-num">1</div>
+        <div>
+          <div class="arg-title">El fondo compra empleos, no dashboards</div>
+          <div class="arg-desc">El indicador de éxito del FQSD es <strong>jóvenes vinculados formalmente</strong>. Disruptia es el único de los dos cuyo modelo de negocio termina en ese indicador. 1Mentor entrega su valor completo sin que un solo joven haya firmado contrato.</div>
+        </div>
+      </div>
+      <div class="arg">
+        <div class="arg-num">2</div>
+        <div>
+          <div class="arg-title">La población del fondo no es la población de 1Mentor</div>
+          <div class="arg-desc">1Mentor se despliega a través de universidades para estudiantes matriculados. Los jóvenes del fondo son <strong>estratos 1–3, muchos formados en SENA, bootcamps y ETDH, desempleados o informales</strong> — exactamente el perfil que un SaaS de autoservicio pierde primero por deserción digital.</div>
+        </div>
+      </div>
+      <div class="arg">
+        <div class="arg-num">3</div>
+        <div>
+          <div class="arg-title">Nosotros movemos los dos lados del mercado</div>
+          <div class="arg-desc">Disruptia activa la demanda: empresas aliadas en Cali, hackathons de selección en vivo, cero costo de intermediación y asesoría para certificar la <strong>deducción tributaria del 120%</strong>. 1Mentor no tiene relación alguna con el empleador — y sin empleador no hay empleo.</div>
+        </div>
+      </div>
+      <div class="arg">
+        <div class="arg-num">4</div>
+        <div>
+          <div class="arg-title">La retención es parte del entregable</div>
+          <div class="arg-desc">Colocar no basta: la deserción temprana destruye el impacto. Disruptia acompaña <strong>2 meses post-vinculación con apoyo psicosocial e integración familiar</strong>, con dashboard de seguimiento para la empresa. Ningún software de recomendación de cursos cubre esa milla.</div>
+        </div>
+      </div>
+      <div class="arg">
+        <div class="arg-num">5</div>
+        <div>
+          <div class="arg-title">Los recursos se quedan trabajando en Cali</div>
+          <div class="arg-desc">Invertir en Disruptia financia operación, empleo y tejido empresarial <strong>local</strong>, con trazabilidad ante el SISE. Invertir en 1Mentor paga una licencia a una multinacional con sede en Londres, sin equipo en el territorio y sin responsable local del resultado.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIESGOS DE ELEGIR SOFTWARE -->
+  <div class="section">
+    <div class="sec-label">
+      <svg class="ico" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Preguntas que el jurado debería hacerle a un SaaS
+    </div>
+    <div class="risk-grid">
+      <div class="risk">
+        <div class="risk-title">¿Quién responde por la colocación?</div>
+        <div class="risk-desc">Si al final del programa los jóvenes tienen "perfiles fortalecidos" pero no empleos, ¿quién rinde cuentas? Con un software, nadie en Cali tiene esa responsabilidad.</div>
+      </div>
+      <div class="risk">
+        <div class="risk-title">¿Qué pasa con el joven sin universidad?</div>
+        <div class="risk-desc">El modelo de despliegue de 1Mentor es vía instituciones de educación superior. El joven del SENA o del bootcamp — mayoría en este fondo — no es su usuario natural.</div>
+      </div>
+      <div class="risk">
+        <div class="risk-title">¿Cuántos terminan usando la plataforma?</div>
+        <div class="risk-desc">En población vulnerable, las herramientas de autoservicio sufren caídas fuertes de adopción sin acompañamiento presencial. El engagement no es empleo.</div>
+      </div>
+      <div class="risk">
+        <div class="risk-title">¿Más cursos era lo que faltaba?</div>
+        <div class="risk-desc">Estos jóvenes ya tienen formación (requisito: 80+ horas tech). Su brecha es de acceso al mercado, no de información sobre qué estudiar. Recetarles más cursos pospone el empleo.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CIERRE -->
+  <div class="section">
+    <div class="close">
+      <h2>«Un algoritmo puede decirle a un joven qué le falta.<br>Solo un operador en el territorio puede <span>llevarlo hasta el contrato — y sostenerlo ahí</span>.»</h2>
+      <p>Disruptia: ruta completa de ingreso, aceleración y salida · intermediación laboral con empresas de Cali · retención con apoyo psicosocial · trazabilidad SISE · beneficio tributario 120% para el empleador.</p>
+      <img src="logo-blanco.png" alt="Disruptia">
+    </div>
+  </div>
+
+  <!-- FUENTES -->
+  <div class="section">
+    <div class="sec-label">
+      <svg class="ico" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      Nota metodológica y fuentes
+    </div>
+    <div class="card sources">
+      Perfil de 1Mentor construido con fuentes públicas (julio 2026): sitio oficial <a href="https://www.1mentor.io/" target="_blank" rel="noopener">1mentor.io</a> · adquisición por QS Quacquarelli Symonds: <a href="https://thepienews.com/qs-acquires-career-navigation-platform-1mentor/" target="_blank" rel="noopener">The PIE News</a> y <a href="https://www.qs.com/insights/qs-acquires-1mentor-to-help-bridge-the-skills-gap-in-higher-education" target="_blank" rel="noopener">QS Insights</a> · despliegues institucionales: <a href="https://www.unitec.edu/blog/como-el-centro-de-empleabilidad-de-unitec-y-1mentor-te-preparan-desde-el-primer-dia/" target="_blank" rel="noopener">UNITEC Honduras</a>, <a href="https://www.ulacit.ac.cr/noticias/conoce-la-herramienta-que-te-permitira-desarrollar-las-competencias-para-brillar/" target="_blank" rel="noopener">ULACIT Costa Rica</a>, <a href="https://www.agenciaatenea.gov.co/noticias/academia-atenea-y-1mentor-una-herramienta-gratuita-para-fortalecer-tu-perfil-profesional-en-el" target="_blank" rel="noopener">Agencia Atenea Bogotá</a> · origen y premios: <a href="https://expansion.mx/emprendedores/2023/01/20/la-startup-que-busca-cerrar-brechas-entre-la-educacion-y-el-mercado-laboral" target="_blank" rel="noopener">Expansión</a>, <a href="https://www.infobae.com/educacion/2023/01/25/se-entregaron-los-tprizes-los-premios-del-tec-de-monterrey-a-las-companias-educativas-con-mayor-impacto-en-latinoamerica/" target="_blank" rel="noopener">Infobae (TPrize)</a>.
+      <br><br>
+      Documento interno de trabajo para la postulación FQSD Fase II ante la Cámara de Comercio de Cali. Las afirmaciones sobre 1Mentor se limitan a su oferta pública documentada; verificar contra la propuesta que 1Mentor presente formalmente al fondo antes de usar este material en el pitch.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
