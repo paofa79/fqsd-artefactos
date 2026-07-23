@@ -1,7 +1,7 @@
 # Alta Gerencia · Cierre de 4 horas con enfoque en SST
 
 **Soletanche Bachy Colombia · Comparativo entre lo propuesto y lo ejecutado, y detalle curricular del cierre**
-*Disruptia · Julio de 2026 · versión final enviada al cliente*
+*Julio de 2026 · versión final enviada al cliente (marca blanca: sin mención a Disruptia)*
 
 Este documento responde a la solicitud de detalle sobre el cierre del proceso con Alta Gerencia: un comparativo entre lo propuesto y lo ejecutado, y el detalle de objetivos, temáticas, metodología y herramientas de las 4 horas de cierre, con la Seguridad y Salud en el Trabajo como columna vertebral y no como telón de fondo de un programa de liderazgo general.
 
@@ -68,7 +68,7 @@ El SST tiene las dos capas. Buena parte de sus desafíos se aborda hoy como si f
 | **2 · Por qué el SST es técnico y adaptativo a la vez** · 25 min | Los dos componentes del SST: lo que se resuelve con procedimiento, formato o recurso, y lo que exige cambio de comportamiento del liderazgo. | Ejemplos del sector y del propio proceso. | Comprensión de por qué las soluciones técnicas no bastan. |
 | **3 · Clasificación de los desafíos de SST** · 40 min | En grupos pequeños, el equipo identifica sus desafíos de SST y separa cuáles son técnicos y cuáles adaptativos. | Formato de clasificación en dos columnas. | Lista propia de desafíos de SST, clasificada. |
 | **Break** · 15 min |  |  |  |
-| **4 · Hoja de Ideas sobre el desafío priorizado** · 45 min | Cada grupo toma uno de sus desafíos de SST y lo trabaja: brecha, componentes técnicos, componentes adaptativos, su propio rol y autoridad, y el mapa de facciones con las ganancias y pérdidas en juego para cada actor. | Hoja de Ideas de Liderazgo Adaptativo (Disruptia), campos 1 a 5. | Hojas de Ideas diligenciadas, con mapa de facciones por desafío. |
+| **4 · Hoja de Ideas sobre el desafío priorizado** · 45 min | Cada grupo toma uno de sus desafíos de SST y lo trabaja: brecha, componentes técnicos, componentes adaptativos, su propio rol y autoridad, y el mapa de facciones con las ganancias y pérdidas en juego para cada actor. | Hoja de Ideas de Liderazgo Adaptativo, campos 1 a 5. | Hojas de Ideas diligenciadas, con mapa de facciones por desafío. |
 | **5 · Debrief y socialización** · 15 min | Puesta en común. Se contrastan lecturas y se identifican los desafíos de SST que se repiten entre áreas. | Plenaria facilitada. | Mapa compartido de los desafíos adaptativos de SST. |
 | **6 · Diseño de acciones de alto impacto** · 30 min | El equipo genera intervenciones posibles sobre los desafíos adaptativos priorizados, sin filtrar en la primera ronda. (Es el «diseño de acciones de alto impacto» del Módulo 4.) | Campo 6 de la Hoja de Ideas. | Banco de intervenciones del equipo directivo. |
 | **7 · Compromisos de liderazgo y medición de salida** · 20 min | El equipo prioriza tres intervenciones con responsable, recursos, fecha y forma de verificación, incluida al menos una sobre cómo movilizar a la gerencia media. Se aplica el diagnóstico de salida. | Tablero de las tres intervenciones; diagnóstico de salida. | Tres compromisos de liderazgo acordados y medición de salida. |
