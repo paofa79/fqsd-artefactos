@@ -1,9 +1,9 @@
 # Alta Gerencia · Cierre de 4 horas con enfoque en SST
 
 **Soletanche Bachy Colombia · Comparativo propuesta–ejecución y detalle curricular del cierre**
-*Borrador interno · revisión antes de envío al cliente*
+*Disruptia · Julio de 2026 — versión final enviada al cliente*
 
-Este documento responde a la solicitud del cliente: un comparativo entre lo propuesto y lo ejecutado con Alta Gerencia, y el detalle de objetivos, temáticas, metodología y herramientas de las 4 horas de cierre — con la Seguridad y Salud en el Trabajo como columna vertebral, no como telón de fondo de un programa de liderazgo general.
+Este documento responde a la solicitud de detalle sobre el cierre del proceso con Alta Gerencia: un comparativo entre lo propuesto y lo ejecutado, y el detalle de objetivos, temáticas, metodología y herramientas de las 4 horas de cierre — con la Seguridad y Salud en el Trabajo como columna vertebral, no como telón de fondo de un programa de liderazgo general.
 
 ---
 
@@ -105,4 +105,4 @@ El campo 5 merece mención aparte: es donde el equipo mapea sus propias faccione
 
 ## 8. Continuidad: Gerencia Media
 
-El Módulo 3 de la propuesta señala como contenido «cómo impactar y movilizar el liderazgo de la gerencia media como eslabón clave del sistema». Esa movilización tiene continuidad en el programa **Capacidades Adaptativas · Gerencia Media, con la cultura de SST como desafío central** (3 sesiones de 4 horas: Observar, Interpretar, Intervenir), cuyo detalle curricular se presenta en documento aparte y responde a la segunda solicitud del cliente.
+El Módulo 3 de la propuesta señala como contenido «cómo impactar y movilizar el liderazgo de la gerencia media como eslabón clave del sistema». Esa movilización tiene continuidad en el programa **Capacidades Adaptativas · Gerencia Media, con la cultura de SST como desafío central** (3 sesiones de 4 horas: Observar, Interpretar, Intervenir), cuyo detalle curricular se presenta en documento aparte.
