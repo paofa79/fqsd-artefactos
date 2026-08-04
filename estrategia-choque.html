@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FQSD · Estrategia de choque: alianzas de empleabilidad · Disruptia</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a1f44;
+      --blue: #0056b3;
+      --cyan: #00c2cb;
+      --cyan-dim: rgba(0,194,203,.15);
+      --cyan-border: rgba(0,194,203,.3);
+      --amber: #b45309;
+      --amber-bg: #fffbeb;
+      --amber-border: #fcd34d;
+      --red: #b91c1c;
+      --red-bg: #fef2f2;
+      --green: #1d9e75;
+      --white: #ffffff;
+      --gray-50: #f8f9fb;
+      --gray-100: #f0f2f5;
+      --gray-200: #e2e6ed;
+      --gray-500: #6b7280;
+      --gray-800: #1f2937;
+      --text: #1f2937;
+      --text-muted: #6b7280;
+      --radius: 12px;
+      --shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      background: var(--gray-50);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px 32px 64px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* NAV */
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0 24px; max-width: 1100px; margin: 0 auto;
+    }
+    .nav img { height: 36px; width: auto; }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .nav-home {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 13px; font-weight: 600; color: var(--text-muted);
+      text-decoration: none; padding: 6px 10px; border-radius: 8px;
+      border: 1px solid var(--gray-200); transition: background .15s;
+    }
+    .nav-home:hover { background: var(--gray-100); color: var(--gray-800); }
+    .nav-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 700; text-decoration: none;
+      padding: 8px 16px; border-radius: 999px;
+      background: var(--navy); color: white; transition: opacity .15s;
+    }
+    .nav-link:hover { opacity: .85; }
+
+    /* HERO */
+    .hero {
+      background: var(--navy); border-radius: 20px;
+      padding: 48px 48px; margin-bottom: 20px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 240px; height: 240px; background: var(--cyan);
+      opacity: .06; border-radius: 50%;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -50px; left: -20px;
+      width: 180px; height: 180px; background: var(--blue);
+      opacity: .15; border-radius: 50%;
+    }
+    .hero-logo { height: 30px; width: auto; margin-bottom: 22px; display: block; opacity: .85; position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 999px;
+      background: var(--cyan-dim); color: var(--cyan);
+      border: 1px solid var(--cyan-border); margin-bottom: 18px;
+      position: relative; z-index: 1;
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif; font-size: 42px; font-weight: 800;
+      color: var(--white); line-height: 1.15; margin-bottom: 16px;
+      position: relative; z-index: 1;
+    }
+    .hero h1 span { color: var(--cyan); }
+    .hero p {
+      font-size: 17px; color: rgba(255,255,255,.72); line-height: 1.65;
+      position: relative; z-index: 1; max-width: 720px;
+    }
+    .hero p strong { color: var(--white); font-weight: 600; }
+
+    /* HERO STATS */
+    .hstats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      margin-top: 30px; padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      position: relative; z-index: 1;
+    }
+    .hstat { padding: 0 18px; }
+    .hstat:first-child { padding-left: 0; }
+    .hstat:not(:last-child) { border-right: 1px solid rgba(255,255,255,.08); }
+    .hstat-n {
+      font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800;
+      color: var(--cyan); line-height: 1.1; margin-bottom: 5px;
+    }
+    .hstat-l { font-size: 12px; color: rgba(255,255,255,.6); line-height: 1.4; }
+
+    /* TOGGLE */
+    .layer-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; flex-wrap: wrap;
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 12px 18px; margin-bottom: 32px;
+      box-shadow: var(--shadow);
+    }
+    .layer-note { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    .layer-btns { display: flex; gap: 6px; flex-shrink: 0; }
+    .layer-btn {
+      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+      padding: 8px 14px; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--gray-200); background: var(--white);
+      color: var(--text-muted); transition: all .15s;
+    }
+    .layer-btn:hover { background: var(--gray-100); }
+    .layer-btn.on { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    body.solo-externo .interno { display: none; }
+
+    /* SECTIONS */
+    .section { margin-bottom: 40px; scroll-margin-top: 20px; }
+    .sec-label {
+      font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 800;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--blue);
+      display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+    }
+    .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+    .sec-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 6px;
+      background: var(--navy); color: var(--cyan); font-size: 12px; flex-shrink: 0;
+    }
+    .badge-int {
+      font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 999px;
+      background: var(--amber-bg); color: var(--amber);
+      border: 1px solid var(--amber-border); flex-shrink: 0;
+    }
+    .sec-intro { font-size: 15px; color: var(--text-muted); line-height: 1.65; margin-bottom: 18px; max-width: 820px; }
+
+    /* CARD */
+    .card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 24px 28px; box-shadow: var(--shadow);
+    }
+    .card + .card { margin-top: 12px; }
+
+    /* TESIS */
+    .tesis {
+      background: var(--navy); border-radius: 16px; padding: 30px 34px;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .tesis-label {
+      font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 800;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 12px;
+    }
+    .tesis p { font-size: 19px; color: var(--white); line-height: 1.55; font-weight: 500; }
+    .tesis p + p { margin-top: 14px; font-size: 15px; color: rgba(255,255,255,.7); font-weight: 400; }
+    .tesis strong { color: var(--cyan); font-weight: 700; }
+
+    /* GRID */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+    /* FUNNEL */
+    .funnel { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .fstep {
+      border-radius: 10px; border: 1px solid var(--gray-200); background: var(--white);
+      padding: 16px 14px; box-shadow: var(--shadow); position: relative;
+    }
+    .fstep-n {
+      font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800;
+      color: var(--navy); line-height: 1; margin-bottom: 6px;
+    }
+    .fstep-t { font-size: 13px; font-weight: 600; color: var(--gray-800); margin-bottom: 4px; }
+    .fstep-s { font-size: 12px; color: var(--text-muted); line-height: 1.45; }
+    .fstep.final { background: var(--navy); border-color: var(--navy); }
+    .fstep.final .fstep-n { color: var(--cyan); }
+    .fstep.final .fstep-t { color: var(--white); }
+    .fstep.final .fstep-s { color: rgba(255,255,255,.6); }
+
+    /* TABLE */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--gray-200); box-shadow: var(--shadow); background: var(--white); }
+    table { width: 100%; border-collapse: collapse; min-width: 720px; }
+    th {
+      font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: .05em; text-transform: uppercase; color: var(--white);
+      background: var(--navy); text-align: left; padding: 12px 16px; white-space: nowrap;
+    }
+    td { padding: 14px 16px; font-size: 14px; line-height: 1.55; border-bottom: 1px solid var(--gray-100); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #fbfcfd; }
+    td strong { color: var(--gray-800); font-weight: 600; }
+    .t-num { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--navy); white-space: nowrap; }
+    .pill {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+    }
+    .pill-fast { background: rgba(29,158,117,.12); color: #157a5a; }
+    .pill-mid { background: var(--cyan-dim); color: #007a82; }
+    .pill-slow { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+
+    /* VIA CARDS */
+    .via { border-radius: 12px; border: 1px solid var(--gray-200); background: var(--white); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+    .via-top { padding: 14px 18px; color: var(--white); }
+    .via-top .via-k { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; opacity: .75; margin-bottom: 4px; }
+    .via-top .via-n { font-family: 'Montserrat', sans-serif; font-size: 17px; font-weight: 800; }
+    .via-body { padding: 16px 18px; font-size: 14px; color: var(--text-muted); line-height: 1.6; flex: 1; }
+    .via-body strong { color: var(--gray-800); font-weight: 600; }
+    .via-foot { padding: 12px 18px; border-top: 1px solid var(--gray-100); font-size: 12px; font-weight: 600; color: var(--navy); background: var(--gray-50); }
+
+    /* OFERTA */
+    .oferta { border-radius: 12px; border: 1px solid var(--gray-200); background: var(--white); padding: 18px 20px; box-shadow: var(--shadow); }
+    .oferta h4 { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+    .oferta dl { font-size: 13.5px; line-height: 1.55; }
+    .oferta dt { font-weight: 700; color: var(--gray-800); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; margin-top: 10px; }
+    .oferta dt:first-child { margin-top: 0; }
+    .oferta dd { color: var(--text-muted); margin-top: 3px; }
+    .oferta dd.ask { color: var(--navy); font-weight: 600; }
+
+    /* LISTA CHECK */
+    .checks { list-style: none; }
+    .checks li {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 12px 0; border-bottom: 1px solid var(--gray-100);
+      font-size: 14.5px; line-height: 1.6; color: var(--text-muted);
+    }
+    .checks li:last-child { border-bottom: none; padding-bottom: 0; }
+    .checks li:first-child { padding-top: 0; }
+    .checks strong { color: var(--gray-800); font-weight: 600; }
+    .cbox {
+      width: 18px; height: 18px; border-radius: 5px; border: 2px solid var(--gray-200);
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .cnum {
+      width: 22px; height: 22px; border-radius: 6px; background: var(--cyan-dim);
+      color: #007a82; font-size: 12px; font-weight: 800; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+
+    /* TIMELINE */
+    .bloque {
+      background: var(--white); border: 1px solid var(--gray-200); border-radius: 12px;
+      box-shadow: var(--shadow); overflow: hidden; margin-bottom: 12px;
+    }
+    .bloque-head {
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+      padding: 14px 20px; background: var(--navy);
+    }
+    .bloque-sem {
+      font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 800;
+      letter-spacing: .05em; color: var(--navy); background: var(--cyan);
+      padding: 4px 12px; border-radius: 999px;
+    }
+    .bloque-t { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 800; color: var(--white); }
+    .bloque-meta { margin-left: auto; font-size: 12px; color: rgba(255,255,255,.65); }
+    .bloque-meta b { color: var(--cyan); font-family: 'Montserrat', sans-serif; }
+    .bloque-body { padding: 18px 20px; }
+    .bloque-body ul { list-style: none; }
+    .bloque-body li { font-size: 14px; color: var(--text-muted); line-height: 1.6; padding-left: 18px; position: relative; margin-bottom: 7px; }
+    .bloque-body li::before { content: '›'; position: absolute; left: 0; color: var(--cyan); font-weight: 700; }
+    .bloque-body li strong { color: var(--gray-800); font-weight: 600; }
+    .no-negociable {
+      margin-top: 14px; padding: 11px 14px; border-radius: 8px;
+      background: var(--amber-bg); border: 1px solid var(--amber-border);
+      font-size: 13px; color: #78350f; line-height: 1.5;
+    }
+    .no-negociable b { color: var(--amber); text-transform: uppercase; font-size: 11px; letter-spacing: .05em; }
+
+    /* CURVA */
+    .curva { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; align-items: end; }
+    .cbar { text-align: center; }
+    .cbar-fill { background: linear-gradient(180deg, var(--cyan), var(--blue)); border-radius: 6px 6px 0 0; margin-bottom: 6px; }
+    .cbar-n { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 800; color: var(--navy); }
+    .cbar-l { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+    /* RIESGO */
+    .riesgo { border-left: 3px solid var(--red); background: var(--white); border-radius: 0 10px 10px 0; padding: 16px 20px; border-top: 1px solid var(--gray-200); border-right: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); margin-bottom: 10px; box-shadow: var(--shadow); }
+    .riesgo h4 { font-size: 15px; font-weight: 700; color: var(--gray-800); margin-bottom: 8px; }
+    .riesgo-row { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); margin-top: 5px; }
+    .riesgo-row b { font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--red); font-weight: 700; }
+    .riesgo-row.anti b { color: var(--green); }
+
+    /* GUION */
+    .guion { background: var(--navy); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; }
+    .guion-k { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--cyan); margin-bottom: 8px; }
+    .guion p { font-size: 15px; color: rgba(255,255,255,.9); line-height: 1.65; font-style: italic; }
+    .guion p + p { margin-top: 10px; }
+
+    /* NOTA */
+    .nota {
+      background: var(--white); border: 1px dashed var(--gray-200); border-radius: 10px;
+      padding: 14px 18px; font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-top: 12px;
+    }
+    .nota b { color: var(--gray-800); }
+
+    /* CTA */
+    .cta { background: var(--navy); border-radius: 16px; padding: 32px 36px; }
+    .cta-label { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+    .cta-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; font-size: 16px; color: rgba(255,255,255,.85); }
+    .cta-row a { color: var(--cyan); text-decoration: none; }
+    .cta-row a:hover { text-decoration: underline; }
+    .cta-footer { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.08); }
+    .cta-footer a { font-size: 13px; color: rgba(255,255,255,.35); text-decoration: none; }
+    .cta-footer a:hover { color: rgba(255,255,255,.6); }
+    .cta-logo { height: 28px; width: auto; opacity: .5; }
+    .ico { width: 20px; height: 20px; flex-shrink: 0; }
+
+    @media (max-width: 900px) {
+      .funnel { grid-template-columns: 1fr 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .curva { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 16px 48px; }
+      .hero { padding: 32px 24px; }
+      .hero h1 { font-size: 28px; }
+      .hero p { font-size: 15px; }
+      .hstats { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .hstat { padding: 0; }
+      .hstat:not(:last-child) { border-right: none; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .cta { padding: 24px 20px; }
+      .nav { padding: 12px 0 16px; }
+      .tesis { padding: 22px 20px; }
+      .tesis p { font-size: 16px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 24px; }
+      .funnel { grid-template-columns: 1fr; }
+      .nav img { height: 28px; }
+      .layer-bar { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .nav, .layer-bar { display: none; }
+      .section { break-inside: avoid; }
+      .card, .table-wrap, .bloque, .riesgo { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav style="padding: 0 16px;">
+  <div class="nav">
+    <img src="logo-negro.png" alt="Disruptia">
+    <div class="nav-right">
+      <a class="nav-home" href="index.html">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Inicio
+      </a>
+      <a class="nav-home" href="jovenes.html">Ruta jóvenes</a>
+      <a class="nav-link" href="empresas.html">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        Oferta empresas →
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="logo-blanco.png" alt="Disruptia" class="hero-logo">
+    <div class="hero-tag">
+      <svg class="ico" style="width:14px;height:14px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      FQSD Fase II · Cali 2026 · Documento de trabajo
+    </div>
+    <h1>60 colocaciones en 90 días:<br><span>estrategia de choque</span> de alianzas de empleabilidad</h1>
+    <p>La única métrica que cuenta es <strong>un contrato formal firmado</strong>. Este documento define cómo se crean y se movilizan las alianzas que producen esas 60 firmas, con qué aritmética, en qué orden, quién responde por cada tramo — y, sobre todo, <strong>qué dejamos de hacer</strong> para no llegar al día 90 con muchos convenios y pocos jóvenes trabajando.</p>
+
+    <div class="hstats">
+      <div class="hstat">
+        <div class="hstat-n">60+</div>
+        <div class="hstat-l">Colocaciones formales<br>en 90 días</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n">150</div>
+        <div class="hstat-l">Vacantes comprometidas<br>necesarias</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n">45</div>
+        <div class="hstat-l">Empresas activas<br>con vacante y fecha</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n">13</div>
+        <div class="hstat-l">Semanas, con curva<br>cargada al final</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOGGLE DE CAPAS -->
+  <div class="layer-bar">
+    <div class="layer-note">
+      Este artefacto tiene <b>dos capas</b>: la <b>estratégica</b>, presentable a aliados, y el <b>anexo operativo interno</b> (cuotas, guiones, riesgos y decisiones pendientes). Usa el selector antes de compartirlo.
+    </div>
+    <div class="layer-btns">
+      <button class="layer-btn on" id="btn-full">Documento completo</button>
+      <button class="layer-btn" id="btn-ext">Solo capa presentable</button>
+    </div>
+  </div>
+
+  <!-- TESIS -->
+  <div class="tesis">
+    <div class="tesis-label">Tesis operativa</div>
+    <p>Un convenio no es una alianza. <strong>Una alianza es una empresa con vacantes comprometidas, con número, con fecha y con un responsable de nombre propio a cada lado de la mesa.</strong> Todo lo demás es actividad que se siente como avance y no coloca a nadie.</p>
+    <p>De ahí se desprende la regla que ordena estos 90 días: <strong>no contamos convenios firmados, contamos vacantes comprometidas y contratos firmados.</strong> Si una conversación no termina en un número y una fecha, no avanzó: apenas fue cordial.</p>
+  </div>
+
+  <!-- 1. ARITMÉTICA -->
+  <div class="section">
+    <div class="sec-label"><span class="sec-num">1</span> La aritmética de la meta</div>
+    <p class="sec-intro">
+      60 colocaciones no se consiguen “buscando aliados”: se consiguen alimentando un embudo con un caudal conocido. Estos son los volúmenes mínimos de entrada. Si a mitad de camino un tramo va por debajo, el problema está en ese tramo, no en el ánimo del equipo.
+    </p>
+
+    <div class="funnel">
+      <div class="fstep">
+        <div class="fstep-n">300</div>
+        <div class="fstep-t">Empresas contactadas</div>
+        <div class="fstep-s">Universo a tocar en 13 semanas. ~23 por semana.</div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-n">45</div>
+        <div class="fstep-t">Empresas activas</div>
+        <div class="fstep-s">Con vacante comprometida y fecha. Conversión 15%.</div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-n">150</div>
+        <div class="fstep-t">Vacantes comprometidas</div>
+        <div class="fstep-s">Promedio de 3,3 vacantes por empresa activa.</div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-n">450</div>
+        <div class="fstep-t">Presentaciones</div>
+        <div class="fstep-s">3 candidatos por vacante, en máximo 48 horas.</div>
+      </div>
+      <div class="fstep final">
+        <div class="fstep-n">60+</div>
+        <div class="fstep-t">Contratos firmados</div>
+        <div class="fstep-s">Conversión vacante → contrato del 40%.</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:12px">
+      <div class="card">
+        <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--navy);margin-bottom:12px">Del lado del talento</h4>
+        <ul class="checks">
+          <li><span class="cnum">1</span><span><strong>400 jóvenes elegibles inscritos</strong> — cumpliendo los 5 requisitos de FQSD (comuna, edad, estrato, no empleado, 80h de formación).</span></li>
+          <li><span class="cnum">2</span><span><strong>200 candidatos “listos para presentar”</strong> — CV en formato ATS, portafolio publicado y simulacro STAR aprobado. Ratio de 3,3 candidatos listos por colocación.</span></li>
+          <li><span class="cnum">3</span><span><strong>60 perfiles élite pre-armados</strong> antes de la semana 1 — el banco que sostiene los primeros asaltos de vacante sin tiempo de preparación.</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--navy);margin-bottom:12px">Ritmo semanal exigido</h4>
+        <ul class="checks">
+          <li><span class="cnum">1</span><span><strong>12 vacantes comprometidas por semana</strong> sostenidas durante 13 semanas.</span></li>
+          <li><span class="cnum">2</span><span><strong>5 contratos firmados por semana</strong> en promedio desde la semana 4 — con una curva que arranca lenta y se acelera.</span></li>
+          <li><span class="cnum">3</span><span><strong>35 presentaciones de candidatos por semana</strong> a empresas reales, no a bolsas de empleo genéricas.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="nota">
+      <b>Nota metodológica.</b> Las tasas de conversión (15% empresa contactada → activa; 40% vacante → contrato) son parámetros de diseño construidos sobre supuestos conservadores de intermediación laboral juvenil, no compromisos contractuales. Se recalibran con datos propios al cierre de la semana 4, cuando ya haya volumen real, y el embudo se reescala hacia arriba o hacia abajo con ese dato.
+    </div>
+  </div>
+
+  <!-- 2. MAPA DE ALIADOS -->
+  <div class="section">
+    <div class="sec-label"><span class="sec-num">2</span> Mapa de aliados: seis tipos, un solo criterio</div>
+    <p class="sec-intro">
+      Los aliados no se ordenan por prestigio ni por tamaño: se ordenan por <b>cuántos contratos ponen y en cuánto tiempo</b>. Un gremio que abre 200 empresas es enorme en potencia y lento en resultado; una temporal es poco vistosa y firma en dos semanas. Los 90 días exigen ambos, pero en proporciones distintas y en momentos distintos.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo de aliado</th>
+            <th>Quién es, en Cali</th>
+            <th>Qué aporta realmente</th>
+            <th>1.ª colocación</th>
+            <th>Meta 90 días</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Empresas ancla</strong></td>
+            <td>BPO y contact centers, fábricas de software, retail y fintech con áreas digitales, clínicas y EPS con analítica, logística del Pacífico.</td>
+            <td>Volumen concentrado: una sola relación puede valer 10 a 15 contratos. Son la columna vertebral de la meta.</td>
+            <td><span class="pill pill-mid">T+21 días</span></td>
+            <td class="t-num">3 anclas<br>≈ 40 vacantes</td>
+          </tr>
+          <tr>
+            <td><strong>2. Agregadores gremiales</strong></td>
+            <td>Cámara de Comercio de Cali, ANDI Valle y ANDI del Futuro, ACOPI, Fedesoft, clústeres sectoriales, Comité Intergremial, ProPacífico, Invest Pacific.</td>
+            <td>Acceso masivo y validación institucional: una alianza abre decenas de empresas y quita la fricción de la primera llamada.</td>
+            <td><span class="pill pill-slow">T+45 días</span></td>
+            <td class="t-num">2 agregadores<br>≈ 40 vacantes</td>
+          </tr>
+          <tr>
+            <td><strong>3. Canal público de empleo</strong></td>
+            <td>Agencia Pública de Empleo del SENA, Unidad del Servicio Público de Empleo, Secretaría de Desarrollo Económico de Cali, MinTrabajo (Art. 108-5).</td>
+            <td>Vacantes ya publicadas y verificadas, más el sello institucional que abre puertas corporativas y ordena la trazabilidad ante el SISE.</td>
+            <td><span class="pill pill-mid">T+30 días</span></td>
+            <td class="t-num">≈ 25 vacantes</td>
+          </tr>
+          <tr>
+            <td><strong>4. Cajas de compensación</strong></td>
+            <td>Comfandi, Comfenalco Valle y sus agencias de gestión y colocación de empleo.</td>
+            <td>El aliado más subestimado: <strong>se miden por colocaciones</strong> y sufren justamente con los perfiles tech. Nosotros les entregamos candidatos pre-filtrados y ellos nos entregan vacantes. Intereses alineados.</td>
+            <td><span class="pill pill-mid">T+30 días</span></td>
+            <td class="t-num">≈ 20 vacantes</td>
+          </tr>
+          <tr>
+            <td><strong>5. Temporales y staffing</strong></td>
+            <td>Empresas de servicios temporales y firmas de selección con operación en el Valle.</td>
+            <td>Velocidad pura: ya tienen la vacante, les falta el candidato. Contratan ellas, con formalidad plena. No son competencia si el trato se enmarca bien.</td>
+            <td><span class="pill pill-fast">T+15 días</span></td>
+            <td class="t-num">≈ 20 vacantes</td>
+          </tr>
+          <tr>
+            <td><strong>6. Demanda difusa</strong></td>
+            <td>Agencias digitales, e-commerce, startups, pymes con una o dos vacantes tech abiertas hoy.</td>
+            <td>Ciclo de decisión cortísimo: el dueño decide en la reunión. Bajo volumen unitario, altísima velocidad, y es donde más colocan los perfiles de marketing y diseño.</td>
+            <td><span class="pill pill-fast">T+15 días</span></td>
+            <td class="t-num">≈ 25 vacantes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--navy);margin-bottom:10px">La regla de asignación de esfuerzo</h4>
+      <p style="font-size:14.5px;color:var(--text-muted);line-height:1.65">
+        <strong style="color:var(--gray-800)">60% del tiempo del equipo va a los tipos 1, 5 y 6</strong> (anclas, temporales y demanda difusa): son los que producen firmas dentro de la ventana de 90 días.
+        <strong style="color:var(--gray-800)">40% va a los tipos 2, 3 y 4</strong> (agregadores, canal público y cajas): construyen la escala que sostiene la fase siguiente y dan legitimidad institucional al programa.
+        <br><br>
+        El error clásico —y el que más hunde programas de empleabilidad— es invertir esa proporción: dedicar las primeras seis semanas a cortejar instituciones grandes de ciclo largo, llegar al día 60 con tres actas de reunión, cero vacantes y el equipo convencido de que “vamos bien”.
+      </p>
+    </div>
+
+    <div class="nota">
+      <b>Aclaración importante.</b> Los nombres de esta tabla son <b>objetivos del ecosistema del Valle</b>, mapeados por tipo de aliado — no aliados confirmados ni relaciones ya establecidas. El primer entregable de la semana 1 es precisamente convertir este mapa genérico en una lista nominal con contactos, estado real de la relación y responsable asignado.
+    </div>
+  </div>
+
+  <!-- 3. LAS TRES VELOCIDADES -->
+  <div class="section">
+    <div class="sec-label"><span class="sec-num">3</span> Tres velocidades corriendo en paralelo</div>
+    <p class="sec-intro">
+      Apostar todo a la vía estructural es lo que produce el hundimiento que queremos evitar: los convenios grandes maduran justo después del día 90. Por eso corren tres vías al mismo tiempo, cada una con una función distinta en la curva de resultados.
+    </p>
+
+    <div class="grid-3">
+      <div class="via">
+        <div class="via-top" style="background:var(--green)">
+          <div class="via-k">Vía 1 · Velocidad</div>
+          <div class="via-n">Asalto de vacante</div>
+        </div>
+        <div class="via-body">
+          Las <strong>470+ vacantes digitales activas hoy en Cali</strong> son el campo de batalla inmediato. No requieren convenio: requieren que un candidato listo llegue al reclutador con un portafolio verificado y una llamada de respaldo del equipo.
+          <br><br>
+          Monitoreo semanal de portales y LinkedIn, lista de vacantes calientes, presentación gestionada en menos de 48 horas.
+        </div>
+        <div class="via-foot">Primeras firmas: semana 3 · Aporte estimado: 15–20 colocaciones</div>
+      </div>
+
+      <div class="via">
+        <div class="via-top" style="background:var(--blue)">
+          <div class="via-k">Vía 2 · Conversión</div>
+          <div class="via-n">Hackathon de selección</div>
+        </div>
+        <div class="via-body">
+          La máquina de cierre del programa. <strong>Tres hackathons en 90 días</strong>, de 8 a 12 empresas cada una, cada empresa con un reto técnico real y compromiso previo de decidir en 48 horas.
+          <br><br>
+          Convierte el problema de confianza —“no tiene experiencia”— en evidencia observada: el empresario ve al joven resolver su propio reto.
+        </div>
+        <div class="via-foot">Primeras firmas: semana 7 · Aporte estimado: 25–30 colocaciones</div>
+      </div>
+
+      <div class="via">
+        <div class="via-top" style="background:var(--navy)">
+          <div class="via-k">Vía 3 · Escala</div>
+          <div class="via-n">Alianza estructural</div>
+        </div>
+        <div class="via-body">
+          Convenios con agregadores, cajas y canal público. Ciclo largo, firma lenta, <strong>efecto multiplicador</strong>: es lo que convierte 60 colocaciones en 300 el año siguiente.
+          <br><br>
+          Se siembra desde la semana 1 aunque no coseche antes del día 60. Nunca al costo de las vías 1 y 2.
+        </div>
+        <div class="via-foot">Primeras firmas: semana 9 · Aporte estimado: 10–15 colocaciones</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. LA OFERTA -->
+  <div class="section">
+    <div class="sec-label"><span class="sec-num">4</span> Qué gana cada aliado — y qué le pedimos</div>
+    <p class="sec-intro">
+      Una alianza se mueve cuando resuelve un dolor propio del aliado, no cuando apela a su generosidad. Cada conversación se prepara con estas tres piezas: <b>qué le duele</b>, <b>qué le damos</b> y <b>el pedido concreto</b> — que siempre lleva número y fecha.
+    </p>
+
+    <div class="grid-2">
+      <div class="oferta">
+        <h4>Empresa contratante</h4>
+        <dl>
+          <dt>Qué le duele</dt>
+          <dd>Vacantes tech abiertas durante meses, procesos de selección caros y alta rotación en cargos de entrada.</dd>
+          <dt>Qué le damos</dt>
+          <dd>Cero costo de intermediación, filtro técnico ya hecho, deducción tributaria del 120% (Art. 108-5 E.T.) con asesoría para certificarla, acompañamiento post-vinculación de 2 meses y trazabilidad para su reporte ESG.</dd>
+          <dt>Qué le pedimos</dt>
+          <dd class="ask">“¿Cuántas vacantes de entrada abre en los próximos 60 días y para qué fecha necesita al primero?”</dd>
+        </dl>
+      </div>
+
+      <div class="oferta">
+        <h4>Gremio, cámara o clúster</h4>
+        <dl>
+          <dt>Qué le duele</dt>
+          <dd>Tiene una agenda de empleabilidad juvenil que cumplir y ningún brazo operativo propio para ejecutarla ni para mostrar resultados medibles.</dd>
+          <dt>Qué le damos</dt>
+          <dd>Un operador que ejecuta con su marca al frente, indicadores verificables de jóvenes colocados entre sus afiliados y un beneficio tangible para ofrecerle a su membresía sin costo.</dd>
+          <dt>Qué le pedimos</dt>
+          <dd class="ask">Convocatoria a sus afiliados, aval institucional y un espacio en su agenda del trimestre: un desayuno empresarial o una hackathon con su sello.</dd>
+        </dl>
+      </div>
+
+      <div class="oferta">
+        <h4>Caja de compensación</h4>
+        <dl>
+          <dt>Qué le duele</dt>
+          <dd>Su agencia de empleo se mide por colocaciones efectivas y las vacantes tech son las que más se le quedan sin cerrar por falta de candidatos calificados.</dd>
+          <dt>Qué le damos</dt>
+          <dd>Un banco de candidatos tech pre-filtrados, con portafolio verificado, listo para sus vacantes represadas. Sus indicadores mejoran con nuestro talento.</dd>
+          <dt>Qué le pedimos</dt>
+          <dd class="ask">Acceso a sus vacantes tech abiertas y ruta preferente de postulación para candidatos FQSD.</dd>
+        </dl>
+      </div>
+
+      <div class="oferta">
+        <h4>Canal público y gobierno local</h4>
+        <dl>
+          <dt>Qué le duele</dt>
+          <dd>Metas de empleo juvenil en jóvenes de estratos 1, 2 y 3 que son difíciles de cumplir y aún más difíciles de documentar.</dd>
+          <dt>Qué le damos</dt>
+          <dd>Colocaciones reales, trazables ante el SISE, en la población exacta que su indicador persigue, sin costo de operación para la entidad.</dd>
+          <dt>Qué le pedimos</dt>
+          <dd class="ask">Acceso a vacantes de la APE, articulación formal y —donde aplique— vinculación a sus propias plantas y las de sus contratistas.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--navy);margin-bottom:12px">Los cinco quitamiedos del empleador</h4>
+      <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:14px">La objeción real casi nunca es el costo: es el riesgo percibido de contratar a alguien sin experiencia previa. La oferta se diseña para desarmar ese riesgo pieza por pieza.</p>
+      <ul class="checks">
+        <li><span class="cnum">1</span><span><strong>No paga nada.</strong> Cero tarifa de intermediación, hoy y en la siguiente contratación.</span></li>
+        <li><span class="cnum">2</span><span><strong>El Estado le devuelve el 120%.</strong> Deducción del Art. 108-5 E.T. por primer empleo formal, con acompañamiento nuestro para certificarla ante MinTrabajo.</span></li>
+        <li><span class="cnum">3</span><span><strong>Lo ve trabajar antes de contratarlo.</strong> Hackathon con su reto real, o prueba técnica sobre un caso propio de la empresa.</span></li>
+        <li><span class="cnum">4</span><span><strong>No lo deja solo después de firmar.</strong> Dos meses de acompañamiento psicosocial e integración familiar, con dashboard de seguimiento.</span></li>
+        <li><span class="cnum">5</span><span><strong>Garantía de reemplazo.</strong> Si el joven no continúa en los primeros 60 días, se presenta un reemplazo pre-filtrado en 10 días hábiles. <span style="color:var(--amber);font-weight:600">(Compromiso por aprobar en dirección — ver sección 12.)</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5. LOS 90 DÍAS -->
+  <div class="section">
+    <div class="sec-label"><span class="sec-num">5</span> El movimiento de choque: 13 semanas</div>
+    <p class="sec-intro">
+      La curva de colocaciones es necesariamente asimétrica: casi nada en las primeras semanas, aceleración fuerte al final. Eso no es retraso, es el diseño — y conviene decirlo antes de empezar, porque el día 30 con 4 colocaciones va a parecer un fracaso y no lo es.
+    </p>
+
+    <div class="bloque">
+      <div class="bloque-head">
+        <span class="bloque-sem">Semanas 1–2</span>
+        <span class="bloque-t">Apertura: nadie coloca todavía</span>
+        <span class="bloque-meta">Meta: <b>40 vacantes</b> · <b>0–2 colocaciones</b></span>
+      </div>
+      <div class="bloque-body">
+        <ul>
+          <li>Convertir el mapa de aliados en una <strong>lista nominal de 300 empresas objetivo</strong>, con contacto, tipo, estado de relación y responsable asignado.</li>
+          <li>Cerrar reunión con los <strong>tres candidatos a empresa ancla</strong> y con <strong>dos agregadores</strong> (una cámara o gremio, una caja de compensación).</li>
+          <li>Dejar listo el <strong>banco de 60 perfiles élite</strong>: CV en formato ATS, portafolio publicado y simulacro STAR aprobado. Sin este banco, la vía 1 no puede arrancar.</li>
+          <li>Publicar la <strong>primera ficha semanal de 5 perfiles estrella</strong> y enviarla a las primeras 100 empresas.</li>
+          <li>Montar el tablero de seguimiento y hacer la primera Sala de Colocación.</li>
+        </ul>
+        <div class="no-negociable"><b>Hito no negociable</b> — Al cierre de la semana 2: 40 vacantes comprometidas por escrito, con número y fecha. Si vamos por debajo de 25, se convoca revisión de estrategia, no “más esfuerzo”.</div>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <div class="bloque-head">
+        <span class="bloque-sem">Semanas 3–6</span>
+        <span class="bloque-t">Primeras firmas por asalto de vacante</span>
+        <span class="bloque-meta">Meta acumulada: <b>90 vacantes</b> · <b>12 colocaciones</b></span>
+      </div>
+      <div class="bloque-body">
+        <ul>
+          <li>Vía 1 a máxima potencia: barrido semanal de vacantes digitales abiertas en Cali y presentación gestionada de candidatos en menos de 48 horas.</li>
+          <li>Activar el <strong>canal de temporales y staffing</strong>: son las primeras firmas rápidas y sostienen la moral del equipo mientras maduran las anclas.</li>
+          <li>Convocar y armar la <strong>Hackathon #1</strong> con 8 a 12 empresas: retos definidos, jurados confirmados, compromiso de decisión en 48 horas.</li>
+          <li>Primeros convenios con anclas firmados y perfiles de cargo negociados uno a uno.</li>
+          <li><strong>Recalibrar el embudo</strong> con las tasas de conversión reales al cierre de la semana 4.</li>
+        </ul>
+        <div class="no-negociable"><b>Hito no negociable</b> — La primera colocación debe ocurrir antes del día 21. No por la cifra, sino porque cambia la conversación con todos los demás aliados: se deja de vender una promesa y se empieza a mostrar un caso.</div>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <div class="bloque-head">
+        <span class="bloque-sem">Semanas 7–10</span>
+        <span class="bloque-t">La máquina de cierre</span>
+        <span class="bloque-meta">Meta acumulada: <b>130 vacantes</b> · <b>40 colocaciones</b></span>
+      </div>
+      <div class="bloque-body">
+        <ul>
+          <li><strong>Hackathon #1 y #2</strong> ejecutadas. Es el tramo donde se decide la meta: cada hackathon debe producir entre 8 y 12 contratos.</li>
+          <li>Expansión dentro de las anclas: la segunda contratación en una empresa que ya contrató cuesta una décima parte del esfuerzo de la primera. <strong>Volver siempre sobre quien ya dijo que sí.</strong></li>
+          <li>Activar el canal de cajas de compensación y APE con vacantes represadas.</li>
+          <li>Primer corte de <strong>retención a 30 días</strong> de los colocados iniciales: sin retención, la colocación no cuenta como resultado.</li>
+          <li>Convertir a los primeros empleadores satisfechos en <strong>referidos</strong>: pedir dos nombres de pares en cada seguimiento.</li>
+        </ul>
+        <div class="no-negociable"><b>Hito no negociable</b> — Semana 10 con menos de 35 colocaciones acumuladas exige plan de contingencia: ampliar la Hackathon #3 a formato feria de empleo con más empresas y más cupos.</div>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <div class="bloque-head">
+        <span class="bloque-sem">Semanas 11–13</span>
+        <span class="bloque-t">Empuje final y blindaje</span>
+        <span class="bloque-meta">Meta acumulada: <b>150 vacantes</b> · <b>60+ colocaciones</b></span>
+      </div>
+      <div class="bloque-body">
+        <ul>
+          <li><strong>Hackathon #3</strong> o feria de empleo de cierre, con las empresas que ya contrataron como anfitrionas y testigos ante las nuevas.</li>
+          <li>Barrido de cierre sobre todas las vacantes comprometidas que sigan sin cubrir: llamada de decisor a decisor.</li>
+          <li>Cierre documental para el 120% y trazabilidad SISE de cada vinculación.</li>
+          <li>Blindaje de retención: acompañamiento intensivo a los colocados en riesgo de deserción temprana.</li>
+          <li>Empaquetar el <strong>resultado como activo de negociación</strong>: casos, cifras y testimonios para la siguiente fase y para los agregadores que aún no han firmado.</li>
+        </ul>
+        <div class="no-negociable"><b>Hito no negociable</b> — Ninguna colocación se reporta sin contrato formal verificado y afiliación a seguridad social. El número tiene que resistir auditoría.</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px">
+      <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--navy);margin-bottom:16px">Curva acumulada de colocaciones</h4>
+      <div class="curva">
+        <div class="cbar"><div class="cbar-fill" style="height:8px"></div><div class="cbar-n">0</div><div class="cbar-l">Sem. 2</div></div>
+        <div class="cbar"><div class="cbar-fill" style="height:16px"></div><div class="cbar-n">4</div><div class="cbar-l">Sem. 4</div></div>
+        <div class="cbar"><div class="cbar-fill" style="height:36px"></div><div class="cbar-n">12</div><div class="cbar-l">Sem. 6</div></div>
+        <div class="cbar"><div class="cbar-fill" style="height:66px"></div><div class="cbar-n">24</div><div class="cbar-l">Sem. 8</div></div>
+        <div class="cbar"><div class="cbar-fill" style="height:104px"></div><div class="cbar-n">40</div><div class="cbar-l">Sem. 10</div></div>
+        <div class="cbar"><div class="cbar-fill" style="height:132px"></div><div class="cbar-n">52</div><div class="cbar-l">Sem. 12</div></div>
+        <div class="cbar"><div class="cbar-fill" style="height:154px"></div><div class="cbar-n">60+</div><div class="cbar-l">Sem. 13</div></div>
+      </div>
+      <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-top:16px">
+        El 60% de las colocaciones ocurre en las últimas cinco semanas. Conviene socializar esta curva con financiadores y aliados <b>antes</b> de empezar: es la diferencia entre un reporte de día 30 que genera confianza y uno que genera alarma.
+      </p>
+    </div>
+  </div>
+
+  <!-- 6. CARGOS PUENTE -->
+  <div class="section">
+    <div class="sec-label"><span class="sec-num">6</span> Dónde sí se coloca este talento en 90 días</div>
+    <p class="sec-intro">
+      La colocación se pierde con más frecuencia en el perfil del cargo que en la voluntad del empleador. Un joven con 80 horas de formación y portafolio no entra a una vacante de desarrollador semi-senior con dos años de experiencia — pero sí entra, y rinde, en cargos puente reales que las empresas de Cali tienen abiertos y les cuesta llenar.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Perfil FQSD</th>
+            <th>Cargos puente con demanda real</th>
+            <th>Dónde están</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Desarrollo de software</strong></td>
+            <td>QA manual y tester, soporte funcional de software, implementador, desarrollador junior en célula acompañada, mantenimiento de sitios y e-commerce.</td>
+            <td>Fábricas de software, casas de ERP, agencias digitales, áreas de TI de empresas medianas.</td>
+          </tr>
+          <tr>
+            <td><strong>Datos y tecnología</strong></td>
+            <td>Analista de datos junior, reportería y tableros, mesa de ayuda y soporte N1, administración de usuarios y accesos, monitoreo de infraestructura.</td>
+            <td>Salud y EPS, retail, logística portuaria, servicios financieros, operadores de TI.</td>
+          </tr>
+          <tr>
+            <td><strong>Diseño y contenidos</strong></td>
+            <td>Diseñador junior, producción de piezas y video corto, edición y montaje, apoyo UX en investigación y prototipado.</td>
+            <td>Agencias, medios, áreas de mercadeo corporativo, productoras.</td>
+          </tr>
+          <tr>
+            <td><strong>Marketing digital</strong></td>
+            <td>Community manager, ejecución de pauta, operación de e-commerce y marketplaces, servicio al cliente digital, CRM.</td>
+            <td>Retail, e-commerce, agencias, BPO con líneas digitales, pymes en digitalización.</td>
+          </tr>
+          <tr>
+            <td><strong>Transversal · bilingües</strong></td>
+            <td>Soporte técnico bilingüe, servicio al cliente tech, backoffice para operaciones nearshore.</td>
+            <td>BPO y contact centers — el canal de mayor volumen y menor tiempo de contratación de la ciudad.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--navy);margin-bottom:10px">El piso que no se negocia</h4>
+      <p style="font-size:14.5px;color:var(--text-muted);line-height:1.65">
+        Se rechaza toda vacante que no cumpla las tres condiciones: <strong style="color:var(--gray-800)">contrato formal con afiliación plena a seguridad social</strong>, <strong style="color:var(--gray-800)">remuneración igual o superior al piso definido por la dirección</strong> y <strong style="color:var(--gray-800)">funciones alineadas con la formación del joven</strong>. Colocar por debajo de ese piso infla el número del día 90 y garantiza la deserción del día 120 — y con ella, reabre exactamente la herida entre el joven y el trabajo formal que el programa existe para cerrar.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== ANEXO OPERATIVO INTERNO ===== -->
+
+  <!-- 7. CÉLULA -->
+  <div class="section interno">
+    <div class="sec-label"><span class="sec-num">7</span> Célula de choque: quién responde por qué <span class="badge-int">Interno</span></div>
+    <p class="sec-intro">
+      Una meta compartida por todos no la persigue nadie. Cada tramo del embudo tiene un dueño con una cuota semanal explícita, y esa cuota se revisa los lunes en voz alta.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Rol</th>
+            <th>De qué responde</th>
+            <th>Cuota semanal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Líder de alianzas</strong><br><span style="font-size:12px;color:var(--text-muted)">Dirección</span></td>
+            <td>Agregadores gremiales, empresas ancla y canal público. Es quien se sienta con decisores, no con áreas de RSE.</td>
+            <td class="t-num">6 reuniones<br>con decisor</td>
+          </tr>
+          <tr>
+            <td><strong>Cazadores de vacantes</strong><br><span style="font-size:12px;color:var(--text-muted)">2 personas</span></td>
+            <td>Demanda difusa, temporales y barrido de vacantes abiertas. Son el motor de volumen del embudo.</td>
+            <td class="t-num">60 contactos<br>12 reuniones<br>4 empresas activas<br><span style="font-size:11px;font-weight:400;color:var(--text-muted)">(cada uno)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Matcher técnico</strong></td>
+            <td>Traducir cada vacante a perfil, seleccionar y presentar candidatos. Custodio del tiempo de respuesta.</td>
+            <td class="t-num">3 candidatos<br>por vacante<br>en 48 horas</td>
+          </tr>
+          <tr>
+            <td><strong>Preparador de talento</strong></td>
+            <td>Marca personal, portafolio, simulacros STAR y preparación específica antes de cada entrevista real.</td>
+            <td class="t-num">20 candidatos<br>listos</td>
+          </tr>
+          <tr>
+            <td><strong>Gestor de retención</strong></td>
+            <td>Acompañamiento psicosocial e integración familiar de los colocados. Responde por el indicador de retención a 30 y 60 días.</td>
+            <td class="t-num">100% de<br>colocados<br>contactados</td>
+          </tr>
+          <tr>
+            <td><strong>Analista de tablero</strong></td>
+            <td>Datos del embudo, semáforo de aliados, reporte de una página y alertas tempranas. Puede ser rol parcial.</td>
+            <td class="t-num">Reporte<br>viernes 4:00 p.m.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nota">
+      <b>Sobre el tamaño del equipo.</b> Esta célula asume seis personas dedicadas (una de ellas parcial). Con menos gente la meta sigue siendo alcanzable, pero hay que sacrificar el frente de agregadores —el de ciclo largo— y concentrar todo en anclas, temporales y demanda difusa. Lo que no funciona es mantener los seis frentes abiertos con la mitad del equipo: se avanza en todos y no se cierra ninguno.
+    </div>
+  </div>
+
+  <!-- 8. CADENCIA -->
+  <div class="section interno">
+    <div class="sec-label"><span class="sec-num">8</span> Cadencia, tablero y semáforo <span class="badge-int">Interno</span></div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--navy);margin-bottom:12px">Ritmo fijo de la semana</h4>
+        <ul class="checks">
+          <li><span class="cnum">L</span><span><strong>Sala de Colocación · 45 min.</strong> Semáforo de aliados, compromisos de la semana con nombre propio, desbloqueo de lo trabado. No es informe de actividades: es asignación de próximos pasos.</span></li>
+          <li><span class="cnum">M</span><span><strong>Comité de vacantes calientes · 30 min.</strong> Toda vacante comprometida sin candidato presentado en más de 72 horas se escala y se resuelve ahí mismo.</span></li>
+          <li><span class="cnum">V</span><span><strong>Reporte de una página · 4:00 p.m.</strong> Seis números, tres alertas, una decisión pedida a dirección. Se envía aunque la semana haya sido mala — sobre todo si fue mala.</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--navy);margin-bottom:12px">Los seis indicadores del tablero</h4>
+        <p style="font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:12px">Seis, y ningún otro. Cada indicador adicional diluye la atención sobre el que importa.</p>
+        <ul class="checks">
+          <li><span class="cnum">1</span><span><strong>Vacantes comprometidas</strong> — con número y fecha, acumuladas y de la semana.</span></li>
+          <li><span class="cnum">2</span><span><strong>Candidatos listos para presentar</strong> — stock disponible, no inscritos.</span></li>
+          <li><span class="cnum">3</span><span><strong>Presentaciones realizadas</strong> a empresas reales.</span></li>
+          <li><span class="cnum">4</span><span><strong>Entrevistas efectivas</strong> agendadas y realizadas.</span></li>
+          <li><span class="cnum">5</span><span><strong>Contratos firmados</strong> — el único que define el éxito.</span></li>
+          <li><span class="cnum">6</span><span><strong>Retención a 30 días</strong> — porque colocar sin retener no es resultado.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--navy);margin-bottom:12px">Semáforo de aliados y la regla del 70%</h4>
+      <div class="table-wrap" style="box-shadow:none;border:none">
+        <table style="min-width:600px">
+          <thead>
+            <tr><th>Estado</th><th>Qué significa exactamente</th><th>Cuánto tiempo del equipo</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="pill pill-fast">A · Activo</span></td>
+              <td>Comprometió un número de vacantes con fecha. Hay proceso en curso.</td>
+              <td><strong>70% del tiempo.</strong> Aquí se cierra la meta.</td>
+            </tr>
+            <tr>
+              <td><span class="pill pill-mid">B · Interesado</span></td>
+              <td>Hubo reunión, hay interés declarado, no hay número ni fecha.</td>
+              <td><strong>20%.</strong> Objetivo único: sacarle un número.</td>
+            </tr>
+            <tr>
+              <td><span class="pill pill-slow">C · Contactado</span></td>
+              <td>Se hizo contacto, no hay reunión agendada.</td>
+              <td><strong>10%.</strong> Se trabaja en bloque, no uno a uno.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:14px;color:var(--text-muted);line-height:1.65;margin-top:14px">
+        La tentación permanente es gastar la semana persiguiendo aliados nuevos —es más estimulante— mientras los que ya dijeron que sí se enfrían sin que nadie los cierre. <strong style="color:var(--gray-800)">Un aliado en A que se enfría cuesta más que diez en C que nunca contestaron.</strong>
+      </p>
+    </div>
+  </div>
+
+  <!-- 9. GUION -->
+  <div class="section interno">
+    <div class="sec-label"><span class="sec-num">9</span> El guion: vender talento, no programa <span class="badge-int">Interno</span></div>
+    <p class="sec-intro">
+      El movimiento central de esta estrategia es una inversión del pitch. No se abre preguntando si la empresa tiene vacantes —eso invita a un “ahora no”— sino ofreciendo un candidato concreto para un rol concreto. El programa se explica después, cuando ya hay interés en una persona.
+    </p>
+
+    <div class="guion">
+      <div class="guion-k">Apertura invertida · empresa</div>
+      <p>“Buenos días. Tengo tres perfiles listos de soporte técnico N1 con portafolio verificado, disponibles esta semana, sin ningún costo para ustedes y con deducción tributaria del 120% si es primer empleo formal. ¿Se los presento el jueves o prefiere el viernes?”</p>
+      <p>— No pregunta si necesita gente. Pregunta qué día. La conversación arranca en el candidato, no en el programa.</p>
+    </div>
+
+    <div class="guion">
+      <div class="guion-k">Apertura · agregador gremial</div>
+      <p>“Ustedes tienen una agenda de empleabilidad juvenil y nosotros tenemos la operación completa, financiada y andando en Cali. Les proponemos algo concreto: una hackathon con su sello, con doce de sus afiliados, en la que el talento se selecciona en vivo. Ustedes ponen la convocatoria; nosotros ponemos el talento, la operación y los indicadores. ¿Qué fecha del trimestre les sirve?”</p>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--navy);margin-bottom:12px">Las seis objeciones y su respuesta</h4>
+      <div class="table-wrap" style="box-shadow:none;border:none">
+        <table style="min-width:640px">
+          <thead><tr><th>Lo que dicen</th><th>Lo que respondemos</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>“No tenemos vacantes ahora.”</strong></td>
+              <td>“Entiendo. ¿Cuál es el cargo que más se les demora en llenar cuando se abre? Le dejo dos perfiles listos para cuando pase, y así no arrancan de cero. ¿Cuándo suele abrirse esa vacante?”</td>
+            </tr>
+            <tr>
+              <td><strong>“Pedimos dos años de experiencia.”</strong></td>
+              <td>“Con toda razón para el cargo completo. Le propongo separar la parte operativa —la que hoy le consume tiempo a su gente senior— en un cargo de entrada. Le sale más barato y libera al senior. Y si quiere verlo antes de decidir, que lo evalúe con un reto real suyo en la hackathon.”</td>
+            </tr>
+            <tr>
+              <td><strong>“No hay presupuesto este año.”</strong></td>
+              <td>“El programa no le cuesta nada y la contratación tiene deducción del 120% por Art. 108-5. El costo neto del primer año es sustancialmente menor al de una contratación ordinaria. Le llevo el cálculo con sus propias cifras.”</td>
+            </tr>
+            <tr>
+              <td><strong>“Ya trabajamos con una temporal.”</strong></td>
+              <td>“Perfecto, no venimos a reemplazarla. Nosotros le entregamos los candidatos pre-filtrados y la vinculación puede hacerse por su temporal de siempre. Nadie cambia de proveedor: solo mejora el candidato.”</td>
+            </tr>
+            <tr>
+              <td><strong>“Eso lo decide la casa matriz.”</strong></td>
+              <td>“Claro. ¿Nos ayuda a llegar a quien decide? Mientras tanto, ¿hay algún cupo local de aprendices o de contratación directa que sí esté en sus manos? Empecemos por ahí y el caso viaja solo hacia arriba.”</td>
+            </tr>
+            <tr>
+              <td><strong>“Mándeme la información.”</strong></td>
+              <td>“Se la envío hoy mismo. Y para que no quede en el correo, le dejo agendados quince minutos el martes: le muestro tres perfiles reales y usted me dice si alguno le sirve. Si no, no lo molesto más.”</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="nota">
+      <b>Ficha semanal de perfiles estrella.</b> Cada lunes sale una pieza de una página con cinco candidatos reales —foto, rol, stack, enlace al portafolio y disponibilidad— a toda la base de empresas. Es la herramienta más barata del arsenal: convierte la base de contactos fríos en un flujo de respuestas entrantes, y le da a cada cazador de vacantes una excusa legítima para volver a llamar cada semana sin sonar insistente.
+    </div>
+  </div>
+
+  <!-- 10. RIESGOS -->
+  <div class="section interno">
+    <div class="sec-label"><span class="sec-num">10</span> Lo que nos hunde — y el antídoto <span class="badge-int">Interno</span></div>
+    <p class="sec-intro">
+      El riesgo mayor no es que ninguna empresa quiera hablar con nosotros: es llegar al día 90 con actividad abundante y colocaciones insuficientes. Estos son los ocho modos de fallar que ya conocemos, con su señal temprana y su antídoto.
+    </p>
+
+    <div class="riesgo">
+      <h4>1. Convenios sin vacantes</h4>
+      <div class="riesgo-row"><b>Señal</b> — El reporte semanal presume de convenios firmados y el número de vacantes comprometidas no se mueve.</div>
+      <div class="riesgo-row anti"><b>Antídoto</b> — El convenio no es un hito reportable. Solo se reportan vacantes con número y fecha. Ninguna reunión se cierra sin pedir explícitamente el número.</div>
+    </div>
+
+    <div class="riesgo">
+      <h4>2. Llega la vacante y el candidato no está listo</h4>
+      <div class="riesgo-row"><b>Señal</b> — Vacantes comprometidas sin candidato presentado por más de 72 horas.</div>
+      <div class="riesgo-row anti"><b>Antídoto</b> — Banco de 60 perfiles élite armado antes de la semana 1 y stock permanente de 200 candidatos listos. El comité de vacantes calientes de los miércoles existe exactamente para esto.</div>
+    </div>
+
+    <div class="riesgo">
+      <h4>3. El perfil de cargo es imposible para el talento FQSD</h4>
+      <div class="riesgo-row"><b>Señal</b> — Las vacantes que nos comparten piden dos años de experiencia o certificaciones que este talento no tiene.</div>
+      <div class="riesgo-row anti"><b>Antídoto</b> — Negociar el rediseño del cargo hacia cargos puente (sección 6) en la misma reunión donde se pide la vacante, no después. Llevar siempre la lista de cargos puente impresa.</div>
+    </div>
+
+    <div class="riesgo">
+      <h4>4. Ciclos de selección corporativos más largos que el programa</h4>
+      <div class="riesgo-row"><b>Señal</b> — Procesos abiertos en semana 5 que siguen sin decisión en semana 9.</div>
+      <div class="riesgo-row anti"><b>Antídoto</b> — Pactar un SLA de decisión de 10 días hábiles al comprometer la vacante, o desviar a la empresa hacia la hackathon, donde la decisión es en 48 horas por diseño.</div>
+    </div>
+
+    <div class="riesgo">
+      <h4>5. Dependencia excesiva de un aliado ancla</h4>
+      <div class="riesgo-row"><b>Señal</b> — Un solo aliado representa más del 30% de las vacantes comprometidas.</div>
+      <div class="riesgo-row anti"><b>Antídoto</b> — Techo de concentración del 25% por aliado en el tablero. Si un ancla se cae en la semana 8 y era el 40% de la meta, no hay tiempo de reemplazarlo.</div>
+    </div>
+
+    <div class="riesgo">
+      <h4>6. El equipo disperso en aliados de ciclo largo</h4>
+      <div class="riesgo-row"><b>Señal</b> — Muchas reuniones institucionales, muchas actas, pocas firmas. Sensación de avance sin movimiento del indicador 5.</div>
+      <div class="riesgo-row anti"><b>Antídoto</b> — Regla del 70% en aliados A, y revisión mensual de la proporción de tiempo real por tipo de aliado. Es un riesgo del que nadie se protege solo: hay que medirlo.</div>
+    </div>
+
+    <div class="riesgo">
+      <h4>7. Deserción temprana del joven colocado</h4>
+      <div class="riesgo-row"><b>Señal</b> — Renuncias antes del día 45, casi siempre por transporte, choque cultural o expectativa salarial rota.</div>
+      <div class="riesgo-row anti"><b>Antídoto</b> — Conversación de expectativas realista <em>antes</em> de aceptar la oferta, acompañamiento psicosocial de 2 meses, integración familiar y piso salarial que no se negocia. La retención a 30 días es indicador de tablero, no de reporte final.</div>
+    </div>
+
+    <div class="riesgo">
+      <h4>8. El agregador que promete difusión y no entrega vacantes</h4>
+      <div class="riesgo-row"><b>Señal</b> — El gremio comparte el boletín, publica el convenio en redes y de ahí no sale ninguna empresa con vacante concreta.</div>
+      <div class="riesgo-row anti"><b>Antídoto</b> — No pedirle difusión: pedirle <em>acceso</em>. Una sesión con veinte afiliados en su agenda, con nosotros en la mesa. La difusión es gratis para ellos y por eso vale poco; el acceso cuesta capital político y por eso funciona.</div>
+    </div>
+  </div>
+
+  <!-- 11. PRIMEROS 10 DÍAS -->
+  <div class="section interno">
+    <div class="sec-label"><span class="sec-num">11</span> Los nueve movimientos de los primeros 10 días <span class="badge-int">Interno</span></div>
+    <p class="sec-intro">
+      Todo lo anterior se vuelve real o se vuelve documento según lo que pase en los próximos diez días hábiles. Esta es la lista corta.
+    </p>
+
+    <div class="card">
+      <ul class="checks">
+        <li><span class="cbox"></span><span><strong>Lista nominal de 300 empresas objetivo</strong>, clasificadas por los seis tipos de aliado, con contacto identificado y responsable asignado.</span></li>
+        <li><span class="cbox"></span><span><strong>Definir las tres empresas ancla candidatas</strong> y conseguir la reunión con quien decide — no con RSE ni con comunicaciones.</span></li>
+        <li><span class="cbox"></span><span><strong>Abrir conversación con dos agregadores</strong>: una cámara o gremio y una caja de compensación. Pedido concreto desde la primera reunión.</span></li>
+        <li><span class="cbox"></span><span><strong>Armar el banco de 60 perfiles élite</strong>: CV en formato ATS, portafolio publicado, simulacro STAR aprobado.</span></li>
+        <li><span class="cbox"></span><span><strong>Barrido inicial de vacantes digitales abiertas en Cali</strong> y presentación de los primeros candidatos por la vía 1, sin esperar ningún convenio.</span></li>
+        <li><span class="cbox"></span><span><strong>Publicar y enviar la primera ficha de 5 perfiles estrella</strong> a las primeras 100 empresas de la lista.</span></li>
+        <li><span class="cbox"></span><span><strong>Fijar fecha y sede de la Hackathon #1</strong> (semana 7) y empezar la convocatoria de empresas de inmediato: es lo que más tarda.</span></li>
+        <li><span class="cbox"></span><span><strong>Montar el tablero de seis indicadores</strong> y hacer la primera Sala de Colocación con cuotas asignadas por persona.</span></li>
+        <li><span class="cbox"></span><span><strong>Resolver las cinco decisiones de dirección</strong> de la sección 12 — varias bloquean conversaciones con aliados.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 12. DECISIONES -->
+  <div class="section interno">
+    <div class="sec-label"><span class="sec-num">12</span> Decisiones que dependen de la dirección <span class="badge-int">Interno</span></div>
+    <p class="sec-intro">
+      Cinco definiciones que esta estrategia asume pero no puede tomar por su cuenta. Cada día que tardan es un día de conversaciones con aliados hechas a media máquina.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Decisión</th><th>Por qué bloquea</th><th>Supuesto vigente</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Garantía de reemplazo</strong></td>
+            <td>Es el quitamiedos más potente frente al empleador, y también un compromiso operativo real que hay que poder cumplir.</td>
+            <td>Reemplazo pre-filtrado en 10 días hábiles si el joven no continúa dentro de los primeros 60 días.</td>
+          </tr>
+          <tr>
+            <td><strong>Piso salarial y de formalidad</strong></td>
+            <td>Sin un piso explícito, el equipo aceptará vacantes malas bajo presión de meta y la deserción se dispara después del día 90.</td>
+            <td>Contrato formal con seguridad social plena y remuneración no inferior al mínimo legal más prestaciones.</td>
+          </tr>
+          <tr>
+            <td><strong>Presupuesto de las tres hackathons</strong></td>
+            <td>Aportan cerca de la mitad de la meta. La #1 se convoca en la semana 1 y requiere sede, logística y jurados confirmados.</td>
+            <td>Tres eventos en 90 días, primera hackathon sin costo para la empresa aliada, según lo ya ofrecido públicamente.</td>
+          </tr>
+          <tr>
+            <td><strong>Composición de la célula</strong></td>
+            <td>Define cuántos frentes de aliado se pueden sostener a la vez. Con menos gente se recorta el frente de agregadores, no la meta.</td>
+            <td>Seis personas dedicadas, una de ellas en rol parcial.</td>
+          </tr>
+          <tr>
+            <td><strong>Canal de temporales y staffing</strong></td>
+            <td>Es la vía más rápida a las primeras firmas, pero implica que el contrato lo firma un tercero y no la empresa usuaria.</td>
+            <td>Se acepta y se cuenta como colocación, siempre que cumpla el piso de formalidad y remuneración.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CIERRE -->
+  <div class="tesis" style="margin-top:40px;margin-bottom:32px">
+    <div class="tesis-label">En una frase</div>
+    <p>La frustración no llega por falta de aliados: llega por <strong>alianzas diseñadas al revés</strong>, que empiezan en el convenio y esperan que la colocación aparezca sola al final.</p>
+    <p>Esta estrategia las diseña desde el otro extremo. Se parte del contrato firmado y se camina hacia atrás: qué vacante lo produce, qué empresa la tiene abierta, qué aliado nos sienta con esa empresa esta semana. Cada conversación termina con un número y una fecha, o no terminó.</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="cta-label">Disruptia · FQSD Fase II · Cali 2026</div>
+    <div class="cta-row">
+      <svg class="ico" fill="none" stroke="#00c2cb" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <a href="mailto:proyectos@disruptia.co">proyectos@disruptia.co</a>
+    </div>
+    <div class="cta-row">
+      <svg class="ico" fill="none" stroke="#00c2cb" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>321 488 5360 · 300 318 6288</span>
+    </div>
+    <div class="cta-footer" style="display:flex;align-items:center;justify-content:space-between">
+      <a href="https://disruptia.co" target="_blank" rel="noopener">disruptia.co ↗</a>
+      <img src="logo-blanco.png" alt="Disruptia" class="cta-logo">
+    </div>
+  </div>
+
+  <p style="font-size:12px;color:var(--text-muted);line-height:1.6;margin-top:20px;text-align:center">
+    Documento interno de trabajo de Disruptia para la operación de FQSD Fase II. Las cifras del embudo son parámetros de diseño sujetos a recalibración con datos propios; los aliados mencionados son objetivos del ecosistema del Valle, no relaciones confirmadas.
+  </p>
+
+</div>
+
+<script>
+  (function () {
+    var full = document.getElementById('btn-full');
+    var ext  = document.getElementById('btn-ext');
+    function set(soloExterno) {
+      document.body.classList.toggle('solo-externo', soloExterno);
+      full.classList.toggle('on', !soloExterno);
+      ext.classList.toggle('on', soloExterno);
+    }
+    full.addEventListener('click', function () { set(false); });
+    ext.addEventListener('click', function () { set(true); });
+  })();
+</script>
+
+</body>
+</html>
